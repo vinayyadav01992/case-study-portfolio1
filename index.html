@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Marketing Case Studies</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000;
+  overflow-x: hidden;
+}
+
+/* ===== BACKGROUND ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("wp7453603.jpg") center/cover no-repeat;
+  animation: bgMove 25s ease-in-out infinite alternate;
+  transform: scale(1.1);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes bgMove {
+  0% { transform: scale(1.1) translate(0,0); }
+  50% { transform: scale(1.2) translate(-20px, -20px); }
+  100% { transform: scale(1.1) translate(20px, 20px); }
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.85);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #334155;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+.hero h1 {
+  font-size: 44px;
+  background: linear-gradient(90deg,#0ea5e9,#0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  color: #64748b;
+}
+
+/* ===== GRID ===== */
+.grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 40px;
+  padding: 40px;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  justify-items: center;
+}
+
+/* ===== CIRCULAR CARD ===== */
+.card {
+  width: 220px;
+  height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.06);
+
+  cursor: pointer;
+  transition: 0.6s;
+  position: relative;
+  overflow: hidden;
+
+  transform: translateY(80px);
+  opacity: 0;
+}
+
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* glow border */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(120deg,#38bdf8,#0ea5e9,#38bdf8);
+  opacity: 0;
+  transition: 0.4s;
+}
+.card:hover::after {
+  opacity: 1;
+  animation: glowMove 3s linear infinite;
+}
+
+@keyframes glowMove {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* mouse glow */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at var(--x,50%) var(--y,50%), #38bdf8, transparent 60%);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+.card:hover::before {
+  opacity: 0.5;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* TEXT LIGHTER */
+.card h3 {
+  color: #1e293b;
+  font-weight: 600;
+}
+.card p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ===== CTA ===== */
+.sticky-cta {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: linear-gradient(135deg,#38bdf8,#0ea5e9);
+  color: #000;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  z-index: 999;
+}
+
+/* ===== POPUP ===== */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.popup-box {
+  background: #020617;
+  padding: 30px;
+  border-radius: 16px;
+  width: 320px;
+  text-align: center;
+  color: #fff;
+}
+.popup-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+}
+.popup-box button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg,#38bdf8,#0ea5e9);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== CALENDLY ===== */
+iframe {
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav-container">
+    <b>AIM Tech Marketing</b>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="lawyer.html">Lawyer</a>
+      <a href="packers-movers.html">Packers & Movers</a>
+      <a href="turf.html">Turf</a>
+      <a href="pestcontrol.html">Pest Control</a>
+      <a href="badges.html">Badges</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <h1>Performance Marketing Case Studies</h1>
+  <p>Real Results. Real Growth.</p>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+<a href="healthcare.html" class="card"><h3>🏥 Healthcare</h3><p>148 Leads | $21 CPL</p></a>
+<a href="lawyer.html" class="card"><h3>⚖️ Lawyer</h3><p>92 Leads | $34 CPL</p></a>
+<a href="packers-movers.html" class="card"><h3>🚚 Packers & Movers</h3><p>215 Leads | $18 CPL</p></a>
+<a href="turf.html" class="card"><h3>🌱 Turf</h3><p>78 Bookings</p></a>
+<a href="pestcontrol.html" class="card"><h3>🐜 Pest Control</h3><p>165 Leads | $14 CPL</p></a>
+<a href="badges.html" class="card"><h3>🎖️ Military Patches</h3><p>72X ROAS | +276% Revenue</p></a>
+</div>
+
+<!-- CTA -->
+<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
+<a href="https://wa.me/1234567890" class="whatsapp">💬</a>
+
+<!-- POPUP -->
+<div id="leadPopup" class="popup">
+  <div class="popup-box">
+    <span onclick="closePopup()">×</span>
+    <h2>Get Free Strategy Call</h2>
+    <input placeholder="Your Name">
+    <input placeholder="Your Email">
+    <input placeholder="Your Phone">
+    <button onclick="openCalendly()">Book Call</button>
+  </div>
+</div>
+
+<!-- CALENDLY -->
+<div style="max-width:1100px;margin:80px auto;padding:20px;">
+  <h2 style="text-align:center;">Book a Free Consultation</h2>
+  <iframe src="https://calendly.com/vinayyadav01992" width="100%" height="600"></iframe>
+</div>
+
+<div class="footer">
+  <p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
+</div>
+
+<script>
+// mouse glow
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--x", (e.clientX - rect.left) + "px");
+    card.style.setProperty("--y", (e.clientY - rect.top) + "px");
+  });
+});
+
+// scroll animation
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+    }
+  });
+},{threshold:0.3});
+
+document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+
+// popup
+function openPopup(){leadPopup.style.display="flex";}
+function closePopup(){leadPopup.style.display="none";}
+function openCalendly(){window.open("https://calendly.com/vinayyadav01992","_blank");}
+
+setTimeout(openPopup,10000);
+</script>
+
+</body>
+</html>
