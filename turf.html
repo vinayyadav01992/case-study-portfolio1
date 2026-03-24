@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turf Case Study</title>
+
+<style>
+.back-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 242, 254, 0.25);
+}
+
+.back-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 242, 254, 0.4);
+}
+
+body {
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#061212;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
+}
+.nav-container {
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+}
+.nav-links a {
+  margin-left:15px;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* PARALLAX */
+.parallax-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
+}
+
+/* CONTAINER */
+.container {
+  max-width:1100px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+/* HERO */
+.hero { text-align:center; margin-bottom:50px; }
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.08);
+  transform:translateY(80px);
+  opacity:0;
+  transition:0.8s;
+}
+.card.show {
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* STORY */
+.story-section {
+  margin-top:70px;
+  padding:30px;
+  border-radius:16px;
+  background: rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  transform:translateY(100px);
+  opacity:0;
+  transition:1s;
+}
+.story-section.show {
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  margin-top:100px;
+  opacity:0;
+  transform:translateY(80px);
+  transition:1s;
+}
+.cta.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* FLOAT BUTTONS */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#25D366;
+  padding:14px;
+  border-radius:50%;
+  color:#fff;
+  z-index:1000;
+}
+.sticky-cta {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:linear-gradient(135deg,#4fd1c5,#00f2fe);
+  border:none;
+  padding:14px 20px;
+  border-radius:30px;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* POPUP */
+.popup {
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.popup-box {
+  background:#0f2a2a;
+  padding:30px;
+  border-radius:12px;
+  width:300px;
+}
+.popup-box input {
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+}
+
+/* FOOTER */
+.footer {
+  text-align:center;
+  padding:30px;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="nav-container">
+<b>AIM Tech Marketing</b>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="healthcare.html">Healthcare</a>
+<a href="lawyer.html">Lawyer</a>
+<a href="packers-movers.html">Packers & Movers</a>
+<a href="turf.html">Turf</a>
+<a href="pestcontrol.html">Pest Control</a>
+<a href="badges.html">Badges</a>
+</div>
+</div>
+</div>
+
+<div class="parallax-bg" id="bg"></div>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+<h1>Increased Turf Bookings by 2.5X in 60 Days</h1>
+<p>Local sports turf maximizing weekend occupancy</p>
+
+<div class="grid">
+<div class="card"><h2>860</h2><p>Clicks</p></div>
+<div class="card"><h2>78</h2><p>Bookings</p></div>
+<div class="card"><h2>9%</h2><p>Conversion Rate</p></div>
+<div class="card"><h2>$27</h2><p>CPL</p></div>
+</div>
+</div>
+
+<!-- CONTENT -->
+<div class="story-section">
+<h2>Client Overview</h2>
+<p>Local turf facility aiming to increase bookings.</p>
+</div>
+
+<div class="story-section">
+<h2>Challenges</h2>
+<div class="grid">
+<div class="card">Low Weekday Demand</div>
+<div class="card">Limited Awareness</div>
+</div>
+</div>
+
+<div class="story-section">
+<h2>Strategy</h2>
+<div class="grid">
+<div class="card">Weekend Focus</div>
+<div class="card">Location Ads</div>
+</div>
+</div>
+
+<!-- PREMIUM RESULTS -->
+<div class="story-section">
+<h2>Results</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Bookings Growth</h3>
+<h1 style="color:#4fd1c5;">+160%</h1>
+<p>30 → 78 bookings in 60 days</p>
+</div>
+
+<div class="card">
+<h3>Conversion Rate</h3>
+<h1 style="color:#4fd1c5;">9%</h1>
+<p>High intent traffic</p>
+</div>
+
+<div class="card">
+<h3>Cost Per Lead</h3>
+<h1 style="color:#4fd1c5;">$27</h1>
+<p>Optimized bidding</p>
+</div>
+
+<div class="card">
+<h3>Click Volume</h3>
+<h1 style="color:#4fd1c5;">860</h1>
+<p>Targeted traffic</p>
+</div>
+</div>
+
+<div style="margin-top:40px;padding:20px;border-radius:12px;background:rgba(79,209,197,0.1);text-align:center;">
+<p><strong>Before:</strong> Low bookings ❌ → <strong>After:</strong> Consistent bookings ✅</p>
+</div>
+
+</div>
+
+<div class="story-section">
+<h2>Key Insights</h2>
+<div class="grid">
+<div class="card">Timing Matters</div>
+<div class="card">Local Search Wins</div>
+</div>
+</div>
+
+<div class="cta">
+<h2>Want More Bookings?</h2>
+<p>Fill your slots with high-intent traffic</p>
+</div>
+
+</div>
+
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/1234567890" class="whatsapp">💬</a>
+<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
+
+<!-- POPUP -->
+<div id="leadPopup" class="popup">
+<div class="popup-box">
+<span onclick="closePopup()">×</span>
+<h2>Get Free Strategy Call</h2>
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+<input placeholder="Your Phone">
+<button onclick="openCalendly()">Book Call</button>
+</div>
+</div>
+
+<!-- BACK -->
+<div style="text-align:center; margin:80px 0;">
+  <a href="index.html" class="back-btn">
+    ← Back to Case Studies
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
+</div>
+
+<script>
+// PARALLAX
+window.addEventListener("scroll", () => {
+  document.getElementById("bg").style.transform =
+    `translateY(${window.scrollY * 0.3}px)`;
+});
+
+// SCROLL ANIMATION
+const elements = document.querySelectorAll('.card, .story-section, .cta');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
+
+elements.forEach(el => observer.observe(el));
+
+// POPUP
+function openPopup(){document.getElementById("leadPopup").style.display="flex";}
+function closePopup(){document.getElementById("leadPopup").style.display="none";}
+function openCalendly(){window.open("https://calendly.com/vinayyadav01992","_blank");}
+
+setTimeout(openPopup,5000);
+</script>
+
+</body>
+</html>
