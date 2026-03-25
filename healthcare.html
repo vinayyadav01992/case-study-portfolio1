@@ -11,34 +11,26 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #061212;
   color: #fff;
-  overflow-x: hidden;
 }
 
 /* NAVBAR */
 .navbar {
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
-  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
   z-index: 1000;
 }
 
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* PARALLAX */
-.parallax-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index: -1;
+.navbar a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 /* CONTAINER */
@@ -55,91 +47,63 @@ h1, h2 {
 .subtitle {
   text-align: center;
   color: #aaa;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 /* CARD */
 .card {
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
   padding: 25px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(80px);
-  opacity: 0;
-  transition: all 0.8s ease;
-}
-
-.card.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.card.active {
-  border: 1px solid #4fd1c5;
-  box-shadow: 0 0 25px rgba(79,209,197,0.3);
-}
-
-/* STORY */
-.story-section {
-  margin-top: 80px;
-  padding: 40px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 1s ease;
+  text-align: center;
 }
 
-.story-section.show {
-  transform: translateY(0);
-  opacity: 1;
+/* BOXED ITEMS */
+.box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* PROGRESS */
 .progress-circle {
-  width: 130px;
-  height: 130px;
-  margin: 20px auto;
+  width: 120px;
+  margin: auto;
   position: relative;
 }
 
-.progress-circle svg {
+svg {
   transform: rotate(-90deg);
 }
 
-.progress-circle circle {
+.bg {
+  stroke: #333;
   fill: none;
   stroke-width: 10;
 }
 
-.bg {
-  stroke: rgba(255,255,255,0.1);
-}
-
 .progress {
   stroke: #4fd1c5;
+  fill: none;
+  stroke-width: 10;
   stroke-dasharray: 314;
   stroke-dashoffset: 314;
-  transition: 2s ease;
 }
 
 .progress-text {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
 }
 
 /* TABLE */
@@ -149,86 +113,22 @@ table {
 }
 
 td, th {
-  border: 1px solid #334155;
-  padding: 12px;
-}
-
-tr:hover {
-  background: rgba(79,209,197,0.08);
+  border: 1px solid #333;
+  padding: 10px;
 }
 
 /* CTA */
 .cta {
   text-align: center;
-  margin-top: 100px;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: 1s;
-}
-
-.cta.show {
-  opacity: 1;
-  transform: translateY(0);
+  margin-top: 80px;
 }
 
 button {
-  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
-  padding: 14px 30px;
-  border-radius: 10px;
+  background: #4fd1c5;
   border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
   cursor: pointer;
-}
-
-/* FLOAT BUTTONS */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: #25D366;
-  padding: 14px;
-  border-radius: 50%;
-  color: #fff;
-}
-
-.sticky-cta {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
-  border: none;
-  padding: 14px 20px;
-  border-radius: 30px;
-}
-
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-box {
-  background: #0f2a2a;
-  padding: 30px;
-  border-radius: 12px;
-  width: 300px;
-}
-
-.popup-box input {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 30px;
-  color: #aaa;
 }
 </style>
 </head>
@@ -236,188 +136,128 @@ button {
 <body>
 
 <div class="navbar">
-  <div class="nav-container">
-    <b>AIM Tech Marketing</b>
+  <div><b>AIM Tech Marketing</b></div>
+  <div>
+    <a href="#overview">Overview</a>
+    <a href="#challenges">Challenges</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#results">Results</a>
   </div>
 </div>
-
-<div class="parallax-bg" id="bg"></div>
 
 <div class="container">
 
 <h1>🚀 Google Ads Case Study</h1>
-<p class="subtitle">Scaled Healthcare Leads by 95% While Reducing CPL by 38%</p>
+<p class="subtitle">95% more leads & 38% lower CPL</p>
 
 <!-- STATS -->
 <div class="grid">
 
-  <div class="card">
-    <h3>Clicks</h3>
-    <div class="progress-circle" data-percent="55">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="110">0%</div>
-    </div>
-    <p>1320 (+110%)</p>
-  </div>
+<div class="card">
+<h3>Clicks Growth</h3>
+<div class="progress-circle" data-percent="100">
+<svg width="120" height="120">
+<circle class="bg" cx="60" cy="60" r="50"/>
+<circle class="progress" cx="60" cy="60" r="50"/>
+</svg>
+<div class="progress-text" data-target="110">0%</div>
+</div>
+<p>620 → 1320</p>
+</div>
 
-  <div class="card">
-    <h3>Conversions</h3>
-    <div class="progress-circle" data-percent="95">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="95">0%</div>
-    </div>
-    <p>148 (+95%)</p>
-  </div>
+<div class="card">
+<h3>Conversions</h3>
+<div class="progress-circle" data-percent="95">
+<svg width="120" height="120">
+<circle class="bg" cx="60" cy="60" r="50"/>
+<circle class="progress" cx="60" cy="60" r="50"/>
+</svg>
+<div class="progress-text" data-target="95">0%</div>
+</div>
+<p>76 → 148</p>
+</div>
 
-  <div class="card">
-    <h3>Conversion Rate</h3>
-    <div class="progress-circle" data-percent="11.2">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="11.2">0%</div>
-    </div>
-    <p>11.2%</p>
-  </div>
+<div class="card">
+<h3>Conversion Rate</h3>
+<div class="progress-circle" data-percent="11.2">
+<svg width="120" height="120">
+<circle class="bg" cx="60" cy="60" r="50"/>
+<circle class="progress" cx="60" cy="60" r="50"/>
+</svg>
+<div class="progress-text" data-target="11.2">0%</div>
+</div>
+<p>9.8% → 11.2%</p>
+</div>
 
-  <div class="card">
-    <h3>Cost Per Lead</h3>
-    <div class="progress-circle" data-percent="60">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="38">0%</div>
-    </div>
-    <p>$21</p>
-  </div>
+<div class="card">
+<h3>Cost Reduction</h3>
+<div class="progress-circle" data-percent="38">
+<svg width="120" height="120">
+<circle class="bg" cx="60" cy="60" r="50"/>
+<circle class="progress" cx="60" cy="60" r="50"/>
+</svg>
+<div class="progress-text" data-target="38">0%</div>
+</div>
+<p>$34 → $21</p>
+</div>
 
 </div>
 
-<div class="story-section">
-<h2>🏥 Client Overview</h2>
-<p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p>
+<!-- OVERVIEW -->
+<h2 id="overview">🏥 Overview</h2>
+<div class="box">
+Multi-location healthcare provider focused on increasing patient acquisition.
 </div>
 
-<div class="story-section">
-<h2>Challenges</h2>
-<ul>
-<li>Low Lead Volume</li>
-<li>Poor Targeting</li>
-<li>No Tracking</li>
-<li>High CPL</li>
-</ul>
+<!-- CHALLENGES -->
+<h2 id="challenges">Challenges</h2>
+<div class="grid">
+<div class="box">Low lead volume</div>
+<div class="box">Poor targeting</div>
+<div class="box">No tracking</div>
+<div class="box">High CPL</div>
 </div>
 
-<div class="story-section">
-<h2>Strategy</h2>
-<ul>
-<li>Location Campaigns</li>
-<li>High Intent Keywords</li>
-<li>Negative Keywords</li>
-<li>Landing Optimization</li>
-<li>Call Tracking</li>
-</ul>
+<!-- STRATEGY -->
+<h2 id="strategy">Strategy</h2>
+<div class="grid">
+<div class="box">High intent keywords</div>
+<div class="box">Geo targeting</div>
+<div class="box">Landing page optimization</div>
+<div class="box">Conversion tracking</div>
 </div>
 
-<div class="story-section">
-<h2>🔁 Funnel Strategy</h2>
-<p>Google Search → Landing Page → Call/Form Conversion (Mobile-first optimized)</p>
-</div>
-
-<div class="story-section">
-<h2>📊 Results Achieved</h2>
+<!-- RESULTS -->
+<h2 id="results">📊 Results</h2>
 <table>
 <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-<tr><td>Clicks</td><td>620</td><td>1,320</td></tr>
+<tr><td>Clicks</td><td>620</td><td>1320</td></tr>
 <tr><td>Conversions</td><td>76</td><td>148</td></tr>
-<tr><td>Conversion Rate</td><td>9.8%</td><td>11.2%</td></tr>
-<tr><td>Cost / Lead</td><td>$34.80</td><td>$21.40</td></tr>
+<tr><td>CPL</td><td>$34</td><td>$21</td></tr>
 </table>
-</div>
-
-<div class="story-section">
-<h2>Key Insights</h2>
-<ul>
-<li>📈 Mobile Dominance</li>
-<li>Keyword Intent</li>
-<li>Landing Pages</li>
-<li>Geo Targeting</li>
-</ul>
-</div>
 
 <div class="cta">
-<h2>Want More Patient Leads?</h2>
-<p>I help healthcare brands scale using Google Ads.</p>
-<button onclick="window.open('https://wa.me/1234567890')">💬 Book Free Consultation</button>
+<h2>Want Similar Results?</h2>
+<button>Book Free Call</button>
 </div>
 
-</div>
-
-<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
-<a href="#" class="whatsapp">💬</a>
-
-<div id="leadPopup" class="popup">
-<div class="popup-box">
-<span onclick="closePopup()">×</span>
-<h2>Get Free Strategy Call</h2>
-<input placeholder="Your Name">
-<input placeholder="Your Email">
-<input placeholder="Your Phone">
-<button onclick="openCalendly()">Book Call</button>
-</div>
-</div>
-
-<div class="footer">
-<p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
 </div>
 
 <script>
-
-// PARALLAX
-window.addEventListener("scroll", () => {
-  const bg = document.getElementById("bg");
-  bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-});
-
-// SCROLL REVEAL
-const elements = document.querySelectorAll('.card, .story-section, .cta');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.3 });
-
-elements.forEach(el => observer.observe(el));
-
-// PROGRESS ANIMATION (EXACT SAME)
 document.querySelectorAll('.progress-circle').forEach(el => {
-  const percent = parseFloat(el.dataset.percent) || 0;
-  const text = el.querySelector('.progress-text');
-  const target = parseFloat(text.dataset.target) || 0;
-
+  const percent = el.dataset.percent;
   const circle = el.querySelector('.progress');
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
 
   const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
 
-  setTimeout(() => {
-    circle.style.strokeDashoffset = offset;
-  }, 500);
+  const text = el.querySelector('.progress-text');
+  const target = text.dataset.target;
 
   let count = 0;
-  const step = target / 60;
+  const step = target / 50;
 
   const counter = setInterval(() => {
     count += step;
@@ -428,23 +268,6 @@ document.querySelectorAll('.progress-circle').forEach(el => {
     text.innerText = count.toFixed(1) + "%";
   }, 20);
 });
-
-// POPUP
-function openPopup() {
-  document.getElementById("leadPopup").style.display = "flex";
-}
-
-function closePopup() {
-  document.getElementById("leadPopup").style.display = "none";
-}
-
-function openCalendly() {
-  window.open("https://calendly.com/vinayyadav01992", "_blank");
-}
-
-// AUTO POPUP
-setTimeout(openPopup, 5000);
-
 </script>
 
 </body>
