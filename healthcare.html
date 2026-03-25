@@ -7,198 +7,228 @@
 
 <style>
 body {
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#061212;
-  color:#fff;
-  overflow-x:hidden;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #061212;
+  color: #fff;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
 .navbar {
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  padding:15px 20px;
-  z-index:1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
 }
 
 .nav-container {
-  max-width:1100px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* PARALLAX */
 .parallax-bg {
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index:-1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
 }
 
 /* CONTAINER */
 .container {
-  max-width:1100px;
-  margin:auto;
-  padding:120px 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 50px;
 }
 
 /* GRID */
 .grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
 /* CARD */
 .card {
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  border-radius:16px;
-  padding:25px;
-  text-align:center;
-  border:1px solid rgba(255,255,255,0.08);
-  transform:translateY(80px);
-  opacity:0;
-  transition:0.8s;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
 .card.show {
-  transform:translateY(0);
-  opacity:1;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card.active {
+  border: 1px solid #4fd1c5;
+  box-shadow: 0 0 25px rgba(79,209,197,0.3);
 }
 
 /* STORY */
 .story-section {
-  margin-top:80px;
-  padding:40px;
-  border-radius:16px;
-  background:rgba(255,255,255,0.04);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.08);
-  transform:translateY(100px);
-  opacity:0;
-  transition:1s;
+  margin-top: 80px;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s ease;
 }
 
 .story-section.show {
-  transform:translateY(0);
-  opacity:1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* PROGRESS */
 .progress-circle {
-  width:130px;
-  height:130px;
-  margin:20px auto;
-  position:relative;
+  width: 130px;
+  height: 130px;
+  margin: 20px auto;
+  position: relative;
 }
 
 .progress-circle svg {
-  transform:rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .progress-circle circle {
-  fill:none;
-  stroke-width:10;
+  fill: none;
+  stroke-width: 10;
 }
 
-.bg { stroke:rgba(255,255,255,0.1); }
+.bg {
+  stroke: rgba(255,255,255,0.1);
+}
 
 .progress {
-  stroke:#4fd1c5;
-  stroke-dasharray:314;
-  stroke-dashoffset:314;
-  transition:2s;
+  stroke: #4fd1c5;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: 2s ease;
 }
 
 .progress-text {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:18px;
-}
-
-/* CTA */
-.cta {
-  text-align:center;
-  margin-top:100px;
-  opacity:0;
-  transform:translateY(80px);
-  transition:1s;
-}
-
-.cta.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-button {
-  background:linear-gradient(135deg,#4fd1c5,#00f2fe);
-  padding:14px 30px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
 /* TABLE */
 table {
-  width:100%;
-  border-collapse:collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
-td,th {
-  border:1px solid #334155;
-  padding:12px;
+
+td, th {
+  border: 1px solid #334155;
+  padding: 12px;
+}
+
+tr:hover {
+  background: rgba(79,209,197,0.08);
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 1s;
+}
+
+.cta.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button {
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  padding: 14px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 /* FLOAT BUTTONS */
 .whatsapp {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#25D366;
-  padding:14px;
-  border-radius:50%;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  padding: 14px;
+  border-radius: 50%;
+  color: #fff;
 }
 
 .sticky-cta {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  padding:14px 20px;
-  border-radius:30px;
-  border:none;
-  background:linear-gradient(135deg,#4fd1c5,#00f2fe);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
 }
 
 /* POPUP */
 .popup {
-  display:none;
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  justify-content:center;
-  align-items:center;
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
 }
 
 .popup-box {
-  background:#0f2a2a;
-  padding:30px;
-  border-radius:12px;
-  width:300px;
+  background: #0f2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
 }
 
+.popup-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* FOOTER */
 .footer {
-  text-align:center;
-  padding:30px;
-  color:#aaa;
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
 }
 </style>
 </head>
@@ -206,9 +236,9 @@ td,th {
 <body>
 
 <div class="navbar">
-<div class="nav-container">
-<b>AIM Tech Marketing</b>
-</div>
+  <div class="nav-container">
+    <b>AIM Tech Marketing</b>
+  </div>
 </div>
 
 <div class="parallax-bg" id="bg"></div>
@@ -216,73 +246,89 @@ td,th {
 <div class="container">
 
 <h1>🚀 Google Ads Case Study</h1>
-<p style="text-align:center;color:#aaa;">Scaled Healthcare Leads by 95% While Reducing CPL by 38%</p>
+<p class="subtitle">Scaled Healthcare Leads by 95% While Reducing CPL by 38%</p>
 
-<!-- STATS WITH PROGRESS -->
+<!-- STATS -->
 <div class="grid">
 
-<div class="card">
-<h3>Clicks</h3>
-<div class="progress-circle" data-percent="100">
-<svg width="130" height="130">
-<circle class="bg" cx="65" cy="65" r="50"/>
-<circle class="progress" cx="65" cy="65" r="50"/>
-</svg>
-<div class="progress-text" data-target="110">0%</div>
-</div>
-<p>1320 (+110%)</p>
+  <div class="card">
+    <h3>Clicks</h3>
+    <div class="progress-circle" data-percent="55">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="110">0%</div>
+    </div>
+    <p>1320 (+110%)</p>
+  </div>
+
+  <div class="card">
+    <h3>Conversions</h3>
+    <div class="progress-circle" data-percent="95">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="95">0%</div>
+    </div>
+    <p>148 (+95%)</p>
+  </div>
+
+  <div class="card">
+    <h3>Conversion Rate</h3>
+    <div class="progress-circle" data-percent="11.2">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="11.2">0%</div>
+    </div>
+    <p>11.2%</p>
+  </div>
+
+  <div class="card">
+    <h3>Cost Per Lead</h3>
+    <div class="progress-circle" data-percent="60">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="38">0%</div>
+    </div>
+    <p>$21</p>
+  </div>
+
 </div>
 
-<div class="card">
-<h3>Conversions</h3>
-<div class="progress-circle" data-percent="95">
-<svg width="130" height="130">
-<circle class="bg" cx="65" cy="65" r="50"/>
-<circle class="progress" cx="65" cy="65" r="50"/>
-</svg>
-<div class="progress-text" data-target="95">0%</div>
-</div>
-<p>148 (+95%)</p>
+<div class="story-section">
+<h2>🏥 Client Overview</h2>
+<p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p>
 </div>
 
-<div class="card">
-<h3>Conversion Rate</h3>
-<div class="progress-circle" data-percent="11.2">
-<svg width="130" height="130">
-<circle class="bg" cx="65" cy="65" r="50"/>
-<circle class="progress" cx="65" cy="65" r="50"/>
-</svg>
-<div class="progress-text" data-target="11.2">0%</div>
-</div>
-<p>11.2%</p>
+<div class="story-section">
+<h2>Challenges</h2>
+<ul>
+<li>Low Lead Volume</li>
+<li>Poor Targeting</li>
+<li>No Tracking</li>
+<li>High CPL</li>
+</ul>
 </div>
 
-<div class="card">
-<h3>Cost Per Lead</h3>
-<div class="progress-circle" data-percent="60">
-<svg width="130" height="130">
-<circle class="bg" cx="65" cy="65" r="50"/>
-<circle class="progress" cx="65" cy="65" r="50"/>
-</svg>
-<div class="progress-text" data-target="38">0%</div>
-</div>
-<p>$21</p>
-</div>
-
+<div class="story-section">
+<h2>Strategy</h2>
+<ul>
+<li>Location Campaigns</li>
+<li>High Intent Keywords</li>
+<li>Negative Keywords</li>
+<li>Landing Optimization</li>
+<li>Call Tracking</li>
+</ul>
 </div>
 
-<!-- KEEP REST SAME -->
-<div class="story-section"><h2>🏥 Client Overview</h2><p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p></div>
-
-<div class="story-section"><h2>Challenges</h2>
-<ul><li>Low Lead Volume</li><li>Poor Targeting</li><li>No Tracking</li><li>High CPL</li></ul>
-</div>
-
-<div class="story-section"><h2>Strategy</h2>
-<ul><li>Location Campaigns</li><li>High Intent Keywords</li><li>Negative Keywords</li><li>Landing Optimization</li><li>Call Tracking</li></ul>
-</div>
-
-<div class="story-section"><h2>🔁 Funnel Strategy</h2>
+<div class="story-section">
+<h2>🔁 Funnel Strategy</h2>
 <p>Google Search → Landing Page → Call/Form Conversion (Mobile-first optimized)</p>
 </div>
 
@@ -297,8 +343,14 @@ td,th {
 </table>
 </div>
 
-<div class="story-section"><h2>Key Insights</h2>
-<ul><li>📈 Mobile Dominance</li><li>Keyword Intent</li><li>Landing Pages</li><li>Geo Targeting</li></ul>
+<div class="story-section">
+<h2>Key Insights</h2>
+<ul>
+<li>📈 Mobile Dominance</li>
+<li>Keyword Intent</li>
+<li>Landing Pages</li>
+<li>Geo Targeting</li>
+</ul>
 </div>
 
 <div class="cta">
@@ -328,50 +380,71 @@ td,th {
 </div>
 
 <script>
+
 // PARALLAX
-window.addEventListener("scroll",()=>{
-document.getElementById("bg").style.transform=`translateY(${window.scrollY*0.3}px)`;
+window.addEventListener("scroll", () => {
+  const bg = document.getElementById("bg");
+  bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
 });
 
-// SCROLL
-const elements=document.querySelectorAll('.card,.story-section,.cta');
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){e.target.classList.add('show');}
-});
-},{threshold:0.3});
-elements.forEach(el=>observer.observe(el));
+// SCROLL REVEAL
+const elements = document.querySelectorAll('.card, .story-section, .cta');
 
-// PROGRESS
-document.querySelectorAll('.progress-circle').forEach(el=>{
-const percent=parseFloat(el.dataset.percent)||0;
-const text=el.querySelector('.progress-text');
-const target=parseFloat(text.dataset.target)||0;
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
 
-const circle=el.querySelector('.progress');
-const radius=50;
-const circumference=2*Math.PI*radius;
-const offset=circumference-(percent/100)*circumference;
+elements.forEach(el => observer.observe(el));
 
-setTimeout(()=>{circle.style.strokeDashoffset=offset;},500);
+// PROGRESS ANIMATION (EXACT SAME)
+document.querySelectorAll('.progress-circle').forEach(el => {
+  const percent = parseFloat(el.dataset.percent) || 0;
+  const text = el.querySelector('.progress-text');
+  const target = parseFloat(text.dataset.target) || 0;
 
-let count=0;
-const step=target/60;
+  const circle = el.querySelector('.progress');
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
 
-const counter=setInterval(()=>{
-count+=step;
-if(count>=target){count=target;clearInterval(counter);}
-text.innerText=count.toFixed(1)+"%";
-},20);
+  const offset = circumference - (percent / 100) * circumference;
+
+  setTimeout(() => {
+    circle.style.strokeDashoffset = offset;
+  }, 500);
+
+  let count = 0;
+  const step = target / 60;
+
+  const counter = setInterval(() => {
+    count += step;
+    if (count >= target) {
+      count = target;
+      clearInterval(counter);
+    }
+    text.innerText = count.toFixed(1) + "%";
+  }, 20);
 });
 
 // POPUP
-function openPopup(){document.getElementById("leadPopup").style.display="flex";}
-function closePopup(){document.getElementById("leadPopup").style.display="none";}
-function openCalendly(){window.open("https://calendly.com/vinayyadav01992","_blank");}
+function openPopup() {
+  document.getElementById("leadPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("leadPopup").style.display = "none";
+}
+
+function openCalendly() {
+  window.open("https://calendly.com/vinayyadav01992", "_blank");
+}
 
 // AUTO POPUP
-setTimeout(openPopup,5000);
+setTimeout(openPopup, 5000);
+
 </script>
 
 </body>
