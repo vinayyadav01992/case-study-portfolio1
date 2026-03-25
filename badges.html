@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Case Study</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #061212;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* PARALLAX */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card.active {
+  border: 1px solid #4fd1c5;
+  box-shadow: 0 0 25px rgba(79,209,197,0.3);
+}
+
+/* STORY */
+.story-section {
+  margin-top: 80px;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.story-section.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.story-section.active {
+  border-left: 6px solid #4fd1c5;
+  background: rgba(79,209,197,0.08);
+}
+
+/* PROGRESS */
+.progress-circle {
+  width: 130px;
+  height: 130px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.progress-circle svg {
+  transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+.bg {
+  stroke: rgba(255,255,255,0.1);
+}
+
+.progress {
+  stroke: #4fd1c5;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: 2s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 1s;
+}
+
+.cta.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button {
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  padding: 14px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="nav-container">
+    <b>AIM Tech Marketing</b>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="lawyer.html">Lawyer</a>
+      <a href="packers-movers.html">Packers</a>
+      <a href="turf.html">Turf</a>
+      <a href="pest.html">Pest Control</a>
+      <a href="badges.html">Patches</a>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-bg" id="bg"></div>
+
+<div class="container">
+
+<h1>🚀 Google Ads Case Study</h1>
+<p class="subtitle">Scaling Revenue for Military & LE Patches (Shopify)</p>
+
+<h2>📊 Results Overview</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Conversions</h3>
+    <div class="progress-circle" data-percent="2.3">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="2.3">0%</div>
+    </div>
+    <p>304.95 → 331.94</p>
+    <div>+2.29%</div>
+  </div>
+
+  <div class="card">
+    <h3>Conversion Value</h3>
+    <div class="progress-circle" data-percent="100">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="276">0%</div>
+    </div>
+    <p>9,289 → 35,005</p>
+    <div>+276.83%</div>
+  </div>
+
+  <div class="card">
+    <h3>ROAS</h3>
+    <div class="progress-circle" data-percent="66.8">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="66.8">0%</div>
+    </div>
+    <p>43.65X → 72.82X</p>
+    <div>+66.82%</div>
+  </div>
+
+  <div class="card">
+    <h3>Clicks</h3>
+    <div class="progress-circle" data-percent="55.7">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="55.7">0%</div>
+    </div>
+    <p>2,660 → 4,144</p>
+    <div>+55.69%</div>
+  </div>
+
+</div>
+
+<div class="story-section">
+<h2>🎯 Objectives</h2>
+<ul>
+<li>Increase conversions without scaling spend aggressively</li>
+<li>Boost revenue and conversion value</li>
+<li>Improve ROAS and profitability</li>
+<li>Drive high-intent traffic</li>
+</ul>
+</div>
+
+<div class="story-section">
+<h2>🧠 Strategy</h2>
+<ul>
+<li>Restructured campaigns into Brand, Search & Performance Max</li>
+<li>Focused on high-intent keywords</li>
+<li>Optimized product feed & creatives for PMax</li>
+<li>Implemented strong remarketing strategy</li>
+<li>Shifted budget to high-performing campaigns</li>
+</ul>
+</div>
+
+<div class="story-section">
+<h2>⚠️ Challenges</h2>
+<ul>
+<li>Niche targeting</li>
+<li>Limited initial data</li>
+<li>High competition</li>
+<li>Tracking issues</li>
+</ul>
+</div>
+
+<div class="story-section">
+<h2>🏆 Final Outcome</h2>
+<ul>
+<li>276% increase in revenue</li>
+<li>ROAS improved to 72.82X</li>
+<li>55% increase in traffic</li>
+<li>Scalable system built</li>
+</ul>
+</div>
+
+<div class="cta">
+<h2>💬 Want Similar Results?</h2>
+<button>Contact Us</button>
+</div>
+
+</div>
+
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/1234567890" class="whatsapp">💬</a>
+<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
+
+<!-- POPUP -->
+<div id="leadPopup" class="popup">
+  <div class="popup-box">
+    <span onclick="closePopup()" style="cursor:pointer;">×</span>
+    <h2>Get Free Strategy Call</h2>
+    <input placeholder="Your Name">
+    <input placeholder="Your Email">
+    <input placeholder="Your Phone">
+    <button onclick="openCalendly()">Book Call</button>
+  </div>
+</div>
+
+<!-- BACK BUTTON -->
+<div style="text-align:center; margin:50px;">
+  <a href="index.html" style="
+    padding:12px 25px;
+    background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+    border-radius:8px;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;">
+    ← Back to Case Studies
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
+</div>
+
+<style>
+/* FLOAT BUTTONS */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  padding: 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  z-index: 1000;
+}
+
+.sticky-cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-box {
+  background: #0f2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.popup-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+</style>
+
+<script>
+// ============================
+// PARALLAX
+// ============================
+window.addEventListener("scroll", () => {
+  const bg = document.getElementById("bg");
+  if (bg) {
+    bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+  }
+});
+
+// ============================
+// SCROLL REVEAL (MERGED)
+// ============================
+const elements = document.querySelectorAll('.card, .story-section, .cta');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
+
+elements.forEach(el => observer.observe(el));
+
+// ============================
+// PROGRESS + COUNT-UP
+// ============================
+document.querySelectorAll('.progress-circle').forEach(el => {
+  const percent = parseFloat(el.dataset.percent) || 0;
+  const text = el.querySelector('.progress-text');
+  const target = parseFloat(text.dataset.target) || 0;
+
+  const circle = el.querySelector('.progress');
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
+
+  const offset = circumference - (percent / 100) * circumference;
+
+  setTimeout(() => {
+    circle.style.strokeDashoffset = offset;
+  }, 500);
+
+  let count = 0;
+  const step = target / 60;
+
+  const counter = setInterval(() => {
+    count += step;
+    if (count >= target) {
+      count = target;
+      clearInterval(counter);
+    }
+    text.innerText = count.toFixed(1) + "%";
+  }, 20);
+});
+
+// ============================
+// POPUP FUNCTIONS
+// ============================
+function openPopup() {
+  document.getElementById("leadPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("leadPopup").style.display = "none";
+}
+
+function openCalendly() {
+  window.open("https://calendly.com/vinayyadav01992", "_blank");
+}
+
+// Auto popup after 5 sec
+setTimeout(openPopup, 5000);
+
+</script>
+
+</body>
+</html>
