@@ -7,91 +7,122 @@
 
 <style>
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #061212;
-  color: #fff;
-  overflow-x: hidden;
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#061212;
+  color:#fff;
+  overflow-x:hidden;
 }
 
 /* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  padding: 15px 20px;
-  z-index: 1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  padding:15px 20px;
+  z-index:1000;
 }
 
 .nav-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
 }
 
 /* PARALLAX */
 .parallax-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index: -1;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index:-1;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 120px 20px;
+  max-width:1100px;
+  margin:auto;
+  padding:120px 20px;
 }
-
-h1,h2 { text-align:center; }
-.subtitle { text-align:center; color:#aaa; margin-bottom:50px; }
 
 /* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
 }
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 25px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  border-radius:16px;
+  padding:25px;
   text-align:center;
   border:1px solid rgba(255,255,255,0.08);
-  transform: translateY(80px);
+  transform:translateY(80px);
   opacity:0;
-  transition: all 0.8s ease;
+  transition:0.8s;
 }
 
 .card.show {
-  transform: translateY(0);
+  transform:translateY(0);
   opacity:1;
 }
 
-/* STORY SECTION */
+/* STORY */
 .story-section {
   margin-top:80px;
   padding:40px;
   border-radius:16px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(10px);
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,0.08);
-  transform: translateY(100px);
+  transform:translateY(100px);
   opacity:0;
   transition:1s;
 }
 
 .story-section.show {
-  transform: translateY(0);
+  transform:translateY(0);
   opacity:1;
+}
+
+/* PROGRESS */
+.progress-circle {
+  width:130px;
+  height:130px;
+  margin:20px auto;
+  position:relative;
+}
+
+.progress-circle svg {
+  transform:rotate(-90deg);
+}
+
+.progress-circle circle {
+  fill:none;
+  stroke-width:10;
+}
+
+.bg { stroke:rgba(255,255,255,0.1); }
+
+.progress {
+  stroke:#4fd1c5;
+  stroke-dasharray:314;
+  stroke-dashoffset:314;
+  transition:2s;
+}
+
+.progress-text {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:18px;
 }
 
 /* CTA */
@@ -109,32 +140,41 @@ h1,h2 { text-align:center; }
 }
 
 button {
-  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  background:linear-gradient(135deg,#4fd1c5,#00f2fe);
   padding:14px 30px;
   border:none;
   border-radius:10px;
   cursor:pointer;
 }
 
+/* TABLE */
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+td,th {
+  border:1px solid #334155;
+  padding:12px;
+}
+
 /* FLOAT BUTTONS */
 .whatsapp {
-  position: fixed;
+  position:fixed;
   bottom:20px;
   left:20px;
   background:#25D366;
   padding:14px;
   border-radius:50%;
-  color:#fff;
 }
 
 .sticky-cta {
-  position: fixed;
+  position:fixed;
   bottom:20px;
   right:20px;
   padding:14px 20px;
   border-radius:30px;
   border:none;
-  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  background:linear-gradient(135deg,#4fd1c5,#00f2fe);
 }
 
 /* POPUP */
@@ -168,15 +208,6 @@ button {
 <div class="navbar">
 <div class="nav-container">
 <b>AIM Tech Marketing</b>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="#">Healthcare</a>
-<a href="#">Lawyer</a>
-<a href="#">Packers</a>
-<a href="#">Turf</a>
-<a href="#">Pest</a>
-<a href="#">Badges</a>
-</div>
 </div>
 </div>
 
@@ -185,50 +216,79 @@ button {
 <div class="container">
 
 <h1>🚀 Google Ads Case Study</h1>
-<p class="subtitle">Scaled Healthcare Leads by 95% While Reducing CPL by 38%</p>
+<p style="text-align:center;color:#aaa;">Scaled Healthcare Leads by 95% While Reducing CPL by 38%</p>
 
-<!-- STATS -->
+<!-- STATS WITH PROGRESS -->
 <div class="grid">
-<div class="card"><h3>Clicks</h3><p>1320 (+110%)</p></div>
-<div class="card"><h3>Conversions</h3><p>148 (+95%)</p></div>
-<div class="card"><h3>Conversion Rate</h3><p>11.2%</p></div>
-<div class="card"><h3>Cost Per Lead</h3><p>$21</p></div>
+
+<div class="card">
+<h3>Clicks</h3>
+<div class="progress-circle" data-percent="100">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="110">0%</div>
+</div>
+<p>1320 (+110%)</p>
 </div>
 
-<div class="story-section">
-<h2>🏥 Client Overview</h2>
-<p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p>
+<div class="card">
+<h3>Conversions</h3>
+<div class="progress-circle" data-percent="95">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="95">0%</div>
+</div>
+<p>148 (+95%)</p>
 </div>
 
-<div class="story-section">
-<h2>Challenges</h2>
-<ul>
-<li>Low Lead Volume</li>
-<li>Poor Targeting</li>
-<li>No Tracking</li>
-<li>High CPL</li>
-</ul>
+<div class="card">
+<h3>Conversion Rate</h3>
+<div class="progress-circle" data-percent="11.2">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="11.2">0%</div>
+</div>
+<p>11.2%</p>
 </div>
 
-<div class="story-section">
-<h2>Strategy</h2>
-<ul>
-<li>Location Campaigns</li>
-<li>High Intent Keywords</li>
-<li>Negative Keywords</li>
-<li>Landing Optimization</li>
-<li>Call Tracking</li>
-</ul>
+<div class="card">
+<h3>Cost Per Lead</h3>
+<div class="progress-circle" data-percent="60">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="38">0%</div>
+</div>
+<p>$21</p>
 </div>
 
-<div class="story-section">
-<h2>🔁 Funnel Strategy</h2>
+</div>
+
+<!-- KEEP REST SAME -->
+<div class="story-section"><h2>🏥 Client Overview</h2><p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p></div>
+
+<div class="story-section"><h2>Challenges</h2>
+<ul><li>Low Lead Volume</li><li>Poor Targeting</li><li>No Tracking</li><li>High CPL</li></ul>
+</div>
+
+<div class="story-section"><h2>Strategy</h2>
+<ul><li>Location Campaigns</li><li>High Intent Keywords</li><li>Negative Keywords</li><li>Landing Optimization</li><li>Call Tracking</li></ul>
+</div>
+
+<div class="story-section"><h2>🔁 Funnel Strategy</h2>
 <p>Google Search → Landing Page → Call/Form Conversion (Mobile-first optimized)</p>
 </div>
 
 <div class="story-section">
 <h2>📊 Results Achieved</h2>
-<table style="width:100%;border-collapse:collapse;">
+<table>
 <tr><th>Metric</th><th>Before</th><th>After</th></tr>
 <tr><td>Clicks</td><td>620</td><td>1,320</td></tr>
 <tr><td>Conversions</td><td>76</td><td>148</td></tr>
@@ -237,14 +297,8 @@ button {
 </table>
 </div>
 
-<div class="story-section">
-<h2>Key Insights</h2>
-<ul>
-<li>📈 Mobile Dominance</li>
-<li>Keyword Intent</li>
-<li>Landing Pages</li>
-<li>Geo Targeting</li>
-</ul>
+<div class="story-section"><h2>Key Insights</h2>
+<ul><li>📈 Mobile Dominance</li><li>Keyword Intent</li><li>Landing Pages</li><li>Geo Targeting</li></ul>
 </div>
 
 <div class="cta">
@@ -279,7 +333,7 @@ window.addEventListener("scroll",()=>{
 document.getElementById("bg").style.transform=`translateY(${window.scrollY*0.3}px)`;
 });
 
-// SCROLL ANIMATION
+// SCROLL
 const elements=document.querySelectorAll('.card,.story-section,.cta');
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
@@ -287,6 +341,29 @@ if(e.isIntersecting){e.target.classList.add('show');}
 });
 },{threshold:0.3});
 elements.forEach(el=>observer.observe(el));
+
+// PROGRESS
+document.querySelectorAll('.progress-circle').forEach(el=>{
+const percent=parseFloat(el.dataset.percent)||0;
+const text=el.querySelector('.progress-text');
+const target=parseFloat(text.dataset.target)||0;
+
+const circle=el.querySelector('.progress');
+const radius=50;
+const circumference=2*Math.PI*radius;
+const offset=circumference-(percent/100)*circumference;
+
+setTimeout(()=>{circle.style.strokeDashoffset=offset;},500);
+
+let count=0;
+const step=target/60;
+
+const counter=setInterval(()=>{
+count+=step;
+if(count>=target){count=target;clearInterval(counter);}
+text.innerText=count.toFixed(1)+"%";
+},20);
+});
 
 // POPUP
 function openPopup(){document.getElementById("leadPopup").style.display="flex";}
