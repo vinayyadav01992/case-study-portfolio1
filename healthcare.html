@@ -6,332 +6,245 @@
 <title>Healthcare Case Study</title>
 
 <style>
-
-/* ===== GLOBAL ===== */
-html { scroll-behavior: smooth; }
-
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #020617;
-    color: #fff;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #061212;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* Animated Gradient Background */
-body::before {
-    content: "";
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent);
-    top: -100px;
-    left: -100px;
-    filter: blur(120px);
-    animation: floatBg 12s ease-in-out infinite alternate;
-}
-
-@keyframes floatBg {
-    from { transform: translate(0,0); }
-    to { transform: translate(150px, 100px); }
-}
-
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 .navbar {
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(14px);
-    background: rgba(2,6,23,0.7);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
 }
 
 .nav-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-.nav-links a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: #94a3b8;
-    transition: 0.3s;
+/* PARALLAX */
+.parallax-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
 }
 
-.nav-links a:hover {
-    color: #38bdf8;
-}
-
-/* ===== HERO ===== */
+/* CONTAINER */
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
 }
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
+h1,h2 { text-align:center; }
+.subtitle { text-align:center; color:#aaa; margin-bottom:50px; }
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:25px;
 }
 
-.hero h1 {
-    font-size: 44px;
-    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.08);
+  transform: translateY(80px);
+  opacity:0;
+  transition: all 0.8s ease;
 }
 
-.hero p { color: #94a3b8; }
-
-/* ===== GRID ===== */
-.grid { display: grid; gap: 20px; }
-
-/* ===== CARDS ===== */
-.card, .stat-card {
-    background: rgba(255,255,255,0.04);
-    padding: 25px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.08);
-    position: relative;
-    overflow: hidden;
-    transition: 0.4s;
+.card.show {
+  transform: translateY(0);
+  opacity:1;
 }
 
-/* Gradient Border Glow */
-.card::before, .stat-card::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:18px;
-    padding:1px;
-    background: linear-gradient(120deg,#38bdf8,transparent,#38bdf8);
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    opacity:0;
-    transition:0.4s;
+/* STORY SECTION */
+.story-section {
+  margin-top:80px;
+  padding:40px;
+  border-radius:16px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  transform: translateY(100px);
+  opacity:0;
+  transition:1s;
 }
 
-.card:hover::before, .stat-card:hover::before {
-    opacity:1;
+.story-section.show {
+  transform: translateY(0);
+  opacity:1;
 }
 
-.card:hover, .stat-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(56,189,248,0.15);
-}
-
-/* ===== STATS ===== */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 50px;
-}
-
-.stat-card { text-align: center; }
-
-/* ===== SECTION ===== */
-.section { margin-top: 80px; }
-
-/* ===== TABLE ===== */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-td, th {
-    border: 1px solid #334155;
-    padding: 12px;
-}
-
-tr:hover {
-    background: rgba(56,189,248,0.05);
-}
-
-/* ===== CTA ===== */
+/* CTA */
 .cta {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-    color: #000;
-    text-align: center;
-    padding: 60px 20px;
-    margin-top: 70px;
-    border-radius: 16px;
+  text-align:center;
+  margin-top:100px;
+  opacity:0;
+  transform:translateY(80px);
+  transition:1s;
 }
 
-.cta button {
-    margin-top: 20px;
-    padding: 14px 30px;
-    border: none;
-    background: #000;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+.cta.show {
+  opacity:1;
+  transform:translateY(0);
 }
 
-.cta button:hover {
-    transform: scale(1.05);
+button {
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  padding:14px 30px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-/* ===== BADGE ===== */
-.badge {
-    display: inline-block;
-    background: rgba(56,189,248,0.1);
-    color: #38bdf8;
-    padding: 6px 12px;
-    border-radius: 20px;
-}
-
-/* ===== FLOAT BUTTONS ===== */
+/* FLOAT BUTTONS */
 .whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    padding: 15px;
-    border-radius: 50%;
+  position: fixed;
+  bottom:20px;
+  left:20px;
+  background:#25D366;
+  padding:14px;
+  border-radius:50%;
+  color:#fff;
 }
 
 .sticky-cta {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    padding: 14px 18px;
-    border-radius: 30px;
-    border: none;
-    background: linear-gradient(135deg,#38bdf8,#0ea5e9);
-    cursor: pointer;
-    animation: pulse 2s infinite;
+  position: fixed;
+  bottom:20px;
+  right:20px;
+  padding:14px 20px;
+  border-radius:30px;
+  border:none;
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
 }
 
-@keyframes pulse {
-    0% {box-shadow:0 0 0 0 rgba(56,189,248,0.6);}
-    70% {box-shadow:0 0 0 15px rgba(56,189,248,0);}
-}
-
-/* ===== POPUP ===== */
+/* POPUP */
 .popup {
-    position: fixed;
-    width:100%;
-    height:100%;
-    background: rgba(0,0,0,0.7);
-    display:none;
-    justify-content:center;
-    align-items:center;
+  display:none;
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
 }
 
 .popup-box {
-    background:#020617;
-    padding:25px;
-    border-radius:12px;
-    width:300px;
+  background:#0f2a2a;
+  padding:30px;
+  border-radius:12px;
+  width:300px;
 }
 
-/* ===== SCROLL ANIMATION ===== */
-.fade-up {
-    opacity:0;
-    transform:translateY(50px);
-    transition:1s;
+.footer {
+  text-align:center;
+  padding:30px;
+  color:#aaa;
 }
-
-.fade-up.show {
-    opacity:1;
-    transform:translateY(0);
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
 <div class="nav-container">
 <b>AIM Tech Marketing</b>
 <div class="nav-links">
 <a href="index.html">Home</a>
-<a href="https://vinayyadav01992.github.io/case-study-portfolio1/healthcare.html">Healthcare</a>
-      <a href="https://vinayyadav01992.github.io/case-study-portfolio1/lawyer.html">Lawyer</a>
-      <a href="https://vinayyadav01992.github.io/case-study-portfolio1/packers-movers.html">Packers & Movers</a>
-      <a href="https://vinayyadav01992.github.io/case-study-portfolio1/turf.html">Turf</a>
-      <a href="https://vinayyadav01992.github.io/case-study-portfolio1/pestcontrol.html">Pest Control</a>
-      <a href="https://vinayyadav01992.github.io/case-study-portfolio1/Badges.html">Military Patches</a></div>
+<a href="#">Healthcare</a>
+<a href="#">Lawyer</a>
+<a href="#">Packers</a>
+<a href="#">Turf</a>
+<a href="#">Pest</a>
+<a href="#">Badges</a>
 </div>
 </div>
+</div>
+
+<div class="parallax-bg" id="bg"></div>
 
 <div class="container">
 
-<div class="hero">
-    <div class="badge">Google Ads Case Study</div>
-    <h1>Scaled Healthcare Leads by 95% While Reducing CPL by 38%</h1>
-    <p>Multi-location healthcare brand generating consistent patient appointments</p>
+<h1>🚀 Google Ads Case Study</h1>
+<p class="subtitle">Scaled Healthcare Leads by 95% While Reducing CPL by 38%</p>
 
-    <div class="stats">
-        <div class="stat-card"><h2 data-target="1320">1320</h2><p>Clicks (+110%)</p></div>
-        <div class="stat-card"><h2 data-target="148">148</h2><p>Conversions (+95%)</p></div>
-        <div class="stat-card"><h2 data-target="11.2">11.2</h2><p>Conversion Rate</p></div>
-        <div class="stat-card"><h2 data-target="21">$21</h2><p>Cost Per Lead</p></div>
-    </div>
+<!-- STATS -->
+<div class="grid">
+<div class="card"><h3>Clicks</h3><p>1320 (+110%)</p></div>
+<div class="card"><h3>Conversions</h3><p>148 (+95%)</p></div>
+<div class="card"><h3>Conversion Rate</h3><p>11.2%</p></div>
+<div class="card"><h3>Cost Per Lead</h3><p>$21</p></div>
 </div>
 
-<!-- KEEP ALL YOUR ORIGINAL SECTIONS SAME (they are intact) -->
-
-<div class="section grid">
-<div class="card"><h3>🏥 Client Overview</h3><p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p></div>
+<div class="story-section">
+<h2>🏥 Client Overview</h2>
+<p>Multi-location healthcare provider aiming to increase patient leads while maintaining profitability.</p>
 </div>
 
-<!-- CHALLENGES -->
-<div class="section"><h2>Challenges</h2>
-<div class="section grid" style="grid-template-columns: repeat(auto-fit, minmax(250px,1fr));">
-    <div class="card"><h3>Low Lead Volume</h3><p>Inconsistent patient inquiries across locations.</p></div>
-    <div class="card"><h3>Poor Targeting</h3><p>Broad keywords bringing irrelevant traffic.</p></div>
-    <div class="card"><h3>No Tracking</h3><p>Missing call & form attribution.</p></div>
-    <div class="card"><h3>High CPL</h3><p>Unoptimized campaigns increasing costs.</p></div>
+<div class="story-section">
+<h2>Challenges</h2>
+<ul>
+<li>Low Lead Volume</li>
+<li>Poor Targeting</li>
+<li>No Tracking</li>
+<li>High CPL</li>
+</ul>
 </div>
 
-<!-- STRATEGY -->
-<div class="section"><h2>Strategy</h2>
-<div class="section grid" style="grid-template-columns: repeat(auto-fit, minmax(250px,1fr));">
-    <div class="card"><h3>Location Campaigns</h3><p>Separate campaigns for each clinic location.</p></div>
-    <div class="card"><h3>High Intent Keywords</h3><p>Focused only on treatment-based searches.</p></div>
-    <div class="card"><h3>Negative Keywords</h3><p>Eliminated wasted spend.</p></div>
-    <div class="card"><h3>Landing Optimization</h3><p>Improved booking conversion rate.</p></div>
-    <div class="card"><h3>Call Tracking</h3><p>Tracked real lead sources.</p></div>
+<div class="story-section">
+<h2>Strategy</h2>
+<ul>
+<li>Location Campaigns</li>
+<li>High Intent Keywords</li>
+<li>Negative Keywords</li>
+<li>Landing Optimization</li>
+<li>Call Tracking</li>
+</ul>
 </div>
 
-<!-- FUNNEL -->
-<div class="section grid">
-    <div class="card">
-        <h3>🔁 Funnel Strategy</h3>
-        <p>Google Search → Landing Page → Call/Form Conversion (Mobile-first optimized)</p>
-    </div>
+<div class="story-section">
+<h2>🔁 Funnel Strategy</h2>
+<p>Google Search → Landing Page → Call/Form Conversion (Mobile-first optimized)</p>
 </div>
 
-<!-- RESULTS -->
-<div class="section">
-    <h2>📊 Results Achieved</h2>
-    <table>
-        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-        <tr><td>Clicks</td><td>620</td><td><b>1,320</b></td></tr>
-        <tr><td>Conversions</td><td>76</td><td><b>148</b></td></tr>
-        <tr><td>Conversion Rate</td><td>9.8%</td><td><b>11.2%</b></td></tr>
-        <tr><td>Cost / Lead</td><td>$34.80</td><td><b>$21.40</b></td></tr>
-    </table>
+<div class="story-section">
+<h2>📊 Results Achieved</h2>
+<table style="width:100%;border-collapse:collapse;">
+<tr><th>Metric</th><th>Before</th><th>After</th></tr>
+<tr><td>Clicks</td><td>620</td><td>1,320</td></tr>
+<tr><td>Conversions</td><td>76</td><td>148</td></tr>
+<tr><td>Conversion Rate</td><td>9.8%</td><td>11.2%</td></tr>
+<tr><td>Cost / Lead</td><td>$34.80</td><td>$21.40</td></tr>
+</table>
 </div>
 
-<!-- INSIGHTS -->
-<div class="section"><h2>Key Insights</h2>
-
-<div class="section grid" style="grid-template-columns: repeat(auto-fit, minmax(250px,1fr));">
-    <div class="card"><h3>📈 Mobile Dominance</h3><p>70% conversions came from mobile users.</p></div>
-    <div class="card"><h3>Keyword Intent</h3><p>High-intent keywords drove best ROI.</p></div>
-    <div class="card"><h3>Landing Pages</h3><p>Improved conversion rates significantly.</p></div>
-    <div class="card"><h3>Geo Targeting</h3><p>Boosted lead quality.</p></div>
+<div class="story-section">
+<h2>Key Insights</h2>
+<ul>
+<li>📈 Mobile Dominance</li>
+<li>Keyword Intent</li>
+<li>Landing Pages</li>
+<li>Geo Targeting</li>
+</ul>
 </div>
 
 <div class="cta">
@@ -356,77 +269,32 @@ tr:hover {
 </div>
 </div>
 
+<div class="footer">
+<p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
+</div>
+
 <script>
+// PARALLAX
+window.addEventListener("scroll",()=>{
+document.getElementById("bg").style.transform=`translateY(${window.scrollY*0.3}px)`;
+});
 
-function openPopup(){document.getElementById("leadPopup").style.display="flex";}
-function closePopup(){document.getElementById("leadPopup").style.display="none";}
-function openCalendly(){window.open("https://calendly.com/your-link");}
-
-/* Scroll Animation */
+// SCROLL ANIMATION
+const elements=document.querySelectorAll('.card,.story-section,.cta');
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
 if(e.isIntersecting){e.target.classList.add('show');}
 });
-});
-document.querySelectorAll('.card,.section').forEach(el=>{
-el.classList.add('fade-up');
-observer.observe(el);
-});
+},{threshold:0.3});
+elements.forEach(el=>observer.observe(el));
 
-/* Counter Animation */
-document.querySelectorAll("[data-target]").forEach(el=>{
-let target=+el.dataset.target;
-let count=0;
-let step=target/60;
+// POPUP
+function openPopup(){document.getElementById("leadPopup").style.display="flex";}
+function closePopup(){document.getElementById("leadPopup").style.display="none";}
+function openCalendly(){window.open("https://calendly.com/vinayyadav01992","_blank");}
 
-function update(){
-count+=step;
-if(count<target){
-el.innerText=Math.floor(count);
-requestAnimationFrame(update);
-}else{
-el.innerText=target;
-}
-}
-update();
-});
-
-<!-- FOOTER -->
-<div class="footer">
-  <p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
-</div>
-
-<!-- JS -->
-<script>
-function openPopup() {
-  document.getElementById("leadPopup").style.display = "flex";
-}
-
-function closePopup() {
-  document.getElementById("leadPopup").style.display = "none";
-}
-
-function openCalendly() {
-  window.open("https://calendly.com/vinayyadav01992", "_blank");
-}
-
-/* AUTO POPUP */
-setTimeout(() => {
-  openPopup();
-}, 5000);
-
-<div style="text-align:center; margin-top:50px;">
-  <a href="index.html" style="
-    padding:12px 25px;
-    background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-    border-radius:8px;
-    text-decoration:none;
-    color:#000;
-    font-weight:bold;">
-    ← Back to Case Studies
-  </a>
-</div>
-
+// AUTO POPUP
+setTimeout(openPopup,5000);
 </script>
 
 </body>
