@@ -11,26 +11,35 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #061212;
   color: #fff;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
 .navbar {
   position: fixed;
-  width: 100%;
   top: 0;
+  width: 100%;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
   z-index: 1000;
 }
 
 .navbar a {
   color: #fff;
-  margin: 0 10px;
+  margin-left: 15px;
   text-decoration: none;
-  font-size: 14px;
+}
+
+/* PARALLAX */
+.parallax-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
 }
 
 /* CONTAINER */
@@ -53,55 +62,68 @@ h1, h2 {
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-/* CARD */
-.card {
+/* CARD (PREMIUM) */
+.card, .box {
   background: rgba(255,255,255,0.05);
-  padding: 25px;
+  backdrop-filter: blur(12px);
   border-radius: 16px;
+  padding: 25px;
   border: 1px solid rgba(255,255,255,0.08);
-  text-align: center;
+  transition: 0.5s;
 }
 
-/* BOXED ITEMS */
-.box {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
+.card:hover, .box:hover {
+  border: 1px solid #4fd1c5;
+  box-shadow: 0 0 20px rgba(79,209,197,0.3);
+}
+
+/* SCROLL ANIMATION */
+.hidden {
+  transform: translateY(80px);
+  opacity: 0;
+}
+
+.show {
+  transform: translateY(0);
+  opacity: 1;
+  transition: 1s;
 }
 
 /* PROGRESS */
 .progress-circle {
-  width: 120px;
-  margin: auto;
+  width: 130px;
+  height: 130px;
+  margin: 20px auto;
   position: relative;
 }
 
-svg {
+.progress-circle svg {
   transform: rotate(-90deg);
 }
 
-.bg {
-  stroke: #333;
+.progress-circle circle {
   fill: none;
   stroke-width: 10;
+}
+
+.bg {
+  stroke: rgba(255,255,255,0.1);
 }
 
 .progress {
   stroke: #4fd1c5;
-  fill: none;
-  stroke-width: 10;
   stroke-dasharray: 314;
   stroke-dashoffset: 314;
+  transition: 2s ease;
 }
 
 .progress-text {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -113,8 +135,8 @@ table {
 }
 
 td, th {
-  border: 1px solid #333;
-  padding: 10px;
+  border: 1px solid #334155;
+  padding: 12px;
 }
 
 /* CTA */
@@ -124,10 +146,10 @@ td, th {
 }
 
 button {
-  background: #4fd1c5;
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  padding: 14px 30px;
   border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
 }
 </style>
@@ -136,7 +158,7 @@ button {
 <body>
 
 <div class="navbar">
-  <div><b>AIM Tech Marketing</b></div>
+  <b>AIM Tech Marketing</b>
   <div>
     <a href="#overview">Overview</a>
     <a href="#challenges">Challenges</a>
@@ -144,6 +166,8 @@ button {
     <a href="#results">Results</a>
   </div>
 </div>
+
+<div class="parallax-bg" id="bg"></div>
 
 <div class="container">
 
@@ -153,48 +177,48 @@ button {
 <!-- STATS -->
 <div class="grid">
 
-<div class="card">
+<div class="card hidden">
 <h3>Clicks Growth</h3>
 <div class="progress-circle" data-percent="100">
-<svg width="120" height="120">
-<circle class="bg" cx="60" cy="60" r="50"/>
-<circle class="progress" cx="60" cy="60" r="50"/>
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
 </svg>
 <div class="progress-text" data-target="110">0%</div>
 </div>
-<p>620 → 1320</p>
+<p>620 → 1,320</p>
 </div>
 
-<div class="card">
+<div class="card hidden">
 <h3>Conversions</h3>
 <div class="progress-circle" data-percent="95">
-<svg width="120" height="120">
-<circle class="bg" cx="60" cy="60" r="50"/>
-<circle class="progress" cx="60" cy="60" r="50"/>
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
 </svg>
 <div class="progress-text" data-target="95">0%</div>
 </div>
 <p>76 → 148</p>
 </div>
 
-<div class="card">
+<div class="card hidden">
 <h3>Conversion Rate</h3>
 <div class="progress-circle" data-percent="11.2">
-<svg width="120" height="120">
-<circle class="bg" cx="60" cy="60" r="50"/>
-<circle class="progress" cx="60" cy="60" r="50"/>
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
 </svg>
 <div class="progress-text" data-target="11.2">0%</div>
 </div>
 <p>9.8% → 11.2%</p>
 </div>
 
-<div class="card">
+<div class="card hidden">
 <h3>Cost Reduction</h3>
 <div class="progress-circle" data-percent="38">
-<svg width="120" height="120">
-<circle class="bg" cx="60" cy="60" r="50"/>
-<circle class="progress" cx="60" cy="60" r="50"/>
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
 </svg>
 <div class="progress-text" data-target="38">0%</div>
 </div>
@@ -204,31 +228,29 @@ button {
 </div>
 
 <!-- OVERVIEW -->
-<h2 id="overview">🏥 Overview</h2>
-<div class="box">
-Multi-location healthcare provider focused on increasing patient acquisition.
-</div>
+<h2 id="overview">Overview</h2>
+<div class="box hidden">Healthcare client scaling patient acquisition.</div>
 
 <!-- CHALLENGES -->
 <h2 id="challenges">Challenges</h2>
 <div class="grid">
-<div class="box">Low lead volume</div>
-<div class="box">Poor targeting</div>
-<div class="box">No tracking</div>
-<div class="box">High CPL</div>
+<div class="box hidden">Low Leads</div>
+<div class="box hidden">Poor Targeting</div>
+<div class="box hidden">No Tracking</div>
+<div class="box hidden">High CPL</div>
 </div>
 
 <!-- STRATEGY -->
 <h2 id="strategy">Strategy</h2>
 <div class="grid">
-<div class="box">High intent keywords</div>
-<div class="box">Geo targeting</div>
-<div class="box">Landing page optimization</div>
-<div class="box">Conversion tracking</div>
+<div class="box hidden">Keyword Optimization</div>
+<div class="box hidden">Geo Targeting</div>
+<div class="box hidden">Landing Page Fix</div>
+<div class="box hidden">Conversion Tracking</div>
 </div>
 
 <!-- RESULTS -->
-<h2 id="results">📊 Results</h2>
+<h2 id="results">Results</h2>
 <table>
 <tr><th>Metric</th><th>Before</th><th>After</th></tr>
 <tr><td>Clicks</td><td>620</td><td>1320</td></tr>
@@ -244,20 +266,38 @@ Multi-location healthcare provider focused on increasing patient acquisition.
 </div>
 
 <script>
+// PARALLAX
+window.addEventListener("scroll", () => {
+  document.getElementById("bg").style.transform =
+    `translateY(${window.scrollY * 0.3}px)`;
+});
+
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+// PROGRESS
 document.querySelectorAll('.progress-circle').forEach(el => {
   const percent = el.dataset.percent;
   const circle = el.querySelector('.progress');
-  const radius = 50;
-  const circumference = 2 * Math.PI * radius;
+  const r = 50;
+  const c = 2 * Math.PI * r;
+  const offset = c - (percent / 100) * c;
 
-  const offset = circumference - (percent / 100) * circumference;
-  circle.style.strokeDashoffset = offset;
+  setTimeout(() => {
+    circle.style.strokeDashoffset = offset;
+  }, 500);
 
   const text = el.querySelector('.progress-text');
   const target = text.dataset.target;
 
   let count = 0;
-  const step = target / 50;
+  const step = target / 60;
 
   const counter = setInterval(() => {
     count += step;
