@@ -325,42 +325,59 @@ nav a:hover {
 <h3>-14% Waste</h3>
 </div>
 
+<!-- CTA -->
+<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
+<a href="https://wa.me/9589188668" class="whatsapp">💬</a>
+
+<!-- POPUP -->
+<div id="leadPopup" class="popup">
+  <div class="popup-box">
+    <span onclick="closePopup()">×</span>
+    <h2>Get Free Strategy Call</h2>
+    <input placeholder="Your Name">
+    <input placeholder="Your Email">
+    <input placeholder="Your Phone">
+    <button onclick="openCalendly()">Book Call</button>
+  </div>
+</div>
+
+<!-- CALENDLY -->
+<div style="max-width:1100px;margin:80px auto;padding:20px;">
+  <h2 style="text-align:center;">Book a Free Consultation</h2>
+  <iframe src="https://calendly.com/vinayyadav01992" width="100%" height="600"></iframe>
 </div>
 
 <div class="footer">
-© Vinay Yadav | Performance Marketing
-</div>
-
+  <p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
 </div>
 
 <script>
-lucide.createIcons();
-
-/* CIRCLE */
-document.querySelectorAll('.circle').forEach(circle => {
-    let percent = circle.getAttribute('data-percent');
-    let deg = percent * 3.6;
-    setTimeout(() => {
-        circle.style.background = `conic-gradient(#00ffd5 ${deg}deg, #1a2f2f ${deg}deg)`;
-    }, 300);
+// mouse glow
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--x", (e.clientX - rect.left) + "px");
+    card.style.setProperty("--y", (e.clientY - rect.top) + "px");
+  });
 });
 
-/* COUNTER */
-document.querySelectorAll('.counter').forEach(counter => {
-    let update = () => {
-        let target = +counter.getAttribute('data-target');
-        let count = +counter.innerText.replace('%','');
-        let inc = target / 40;
+// scroll animation
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+    }
+  });
+},{threshold:0.3});
 
-        if(count < target){
-            counter.innerText = Math.ceil(count + inc) + "%";
-            setTimeout(update, 30);
-        } else {
-            counter.innerText = target + "%";
-        }
-    };
-    update();
-});
+document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+
+// popup
+function openPopup(){leadPopup.style.display="flex";}
+function closePopup(){leadPopup.style.display="none";}
+function openCalendly(){window.open("https://calendly.com/vinayyadav01992","_blank");}
+
+setTimeout(openPopup,10000);
 </script>
 
 </body>
