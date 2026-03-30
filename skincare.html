@@ -15,7 +15,6 @@ body {
     font-family: 'Poppins', sans-serif;
     background: radial-gradient(circle at top, #0f2f2f, #050d0d);
     color: #fff;
-    overflow-x: hidden;
 }
 
 .container {
@@ -77,7 +76,6 @@ nav a:hover {
     backdrop-filter: blur(15px);
     border: 1px solid rgba(0,255,213,0.1);
     transition: 0.4s;
-    position: relative;
 }
 
 .card:hover {
@@ -91,7 +89,7 @@ nav a:hover {
     height: 130px;
     margin: 20px auto;
     border-radius: 50%;
-    background: conic-gradient(#00ffd5 0deg, #00ffd5 0deg, #1a2f2f 0deg);
+    background: conic-gradient(#00ffd5 0deg, #1a2f2f 0deg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,37 +111,39 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* ===== TEXT ===== */
-.card h3 {
-    color: #00ffd5;
-}
-
-.card p {
-    color: #bbb;
-    font-size: 14px;
-}
-
-/* ===== SECTION ===== */
-.section {
+/* ===== CASE GRID ===== */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
     margin-top: 80px;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.6s;
 }
 
-.section.active {
-    opacity: 1;
-    transform: translateY(0);
+/* ===== CASE CARD ===== */
+.case-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,255,213,0.1);
+    transition: 0.4s;
 }
 
-.section h2 {
-    border-left: 4px solid #00ffd5;
-    padding-left: 12px;
+.case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0,255,213,0.25);
 }
 
-.section p {
+.case-card h2 {
+    color: #00ffd5;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.case-card p {
     color: #ccc;
-    line-height: 1.7;
+    line-height: 1.6;
+    font-size: 14px;
 }
 
 /* ===== FOOTER ===== */
@@ -161,6 +161,7 @@ nav a:hover {
 
 <div class="container">
 
+<!-- NAV -->
 <nav>
     <div><strong>Vinay Portfolio</strong></div>
     <div>
@@ -170,11 +171,13 @@ nav a:hover {
     </div>
 </nav>
 
+<!-- HEADER -->
 <div class="header">
     <h1>Google Ads Growth</h1>
-    <p>Skincare Brand Case Study</p>
+    <p>Skincare Brand Case Study (Feb–Apr vs Sep–Nov)</p>
 </div>
 
+<!-- METRICS -->
 <div class="metrics">
 
     <div class="card">
@@ -211,38 +214,54 @@ nav a:hover {
 
 </div>
 
-<div class="section">
-<h2>Challenge</h2>
-<p>High clicks but low ROI. Budget inefficiencies and poor targeting reduced campaign performance.</p>
+<!-- CASE STUDY CARDS -->
+<div class="case-grid">
+
+    <div class="case-card">
+        <h2>Challenge</h2>
+        <p>
+            High traffic but low efficiency. Campaigns were generating clicks 
+            without strong ROI due to poor targeting and wasted ad spend.
+        </p>
+    </div>
+
+    <div class="case-card">
+        <h2>Strategy</h2>
+        <p>
+            Focused on high-intent keywords, removed low-performing segments, 
+            and optimized bidding strategies to improve campaign efficiency.
+        </p>
+    </div>
+
+    <div class="case-card">
+        <h2>Execution</h2>
+        <p>
+            Rebuilt campaign structure, improved ad copies, and implemented 
+            A/B testing with extensions to maximize CTR and conversions.
+        </p>
+    </div>
+
+    <div class="case-card">
+        <h2>Results</h2>
+        <p>
+            Achieved 53% increase in conversions, 30% higher ROAS, 
+            and 28% growth in conversion value with reduced wasted spend.
+        </p>
+    </div>
+
 </div>
 
-<div class="section">
-<h2>Strategy</h2>
-<p>Focused on high-intent keywords, removed waste traffic, and optimized bidding strategies.</p>
-</div>
-
-<div class="section">
-<h2>Execution</h2>
-<p>Improved ad copies, restructured campaigns, and applied continuous A/B testing.</p>
-</div>
-
-<div class="section">
-<h2>Results</h2>
-<p>53% increase in conversions, 30% boost in ROAS, and higher quality traffic with reduced spend waste.</p>
-</div>
-
+<!-- FOOTER -->
 <div class="footer">
-© Vinay Yadav | Performance Marketing
+    © 2024 Vinay Yadav | Performance Marketing Portfolio
 </div>
 
 </div>
 
 <script>
 
-/* ===== ANIMATION ===== */
-const circles = document.querySelectorAll('.circle');
-
-circles.forEach(circle => {
+/* ===== CIRCLE ANIMATION ===== */
+document.querySelectorAll('.circle').forEach(circle => {
     let percent = circle.getAttribute('data-percent');
     let deg = percent * 3.6;
 
@@ -252,14 +271,12 @@ circles.forEach(circle => {
 });
 
 /* ===== COUNTER ===== */
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
+document.querySelectorAll('.counter').forEach(counter => {
     let update = () => {
         let target = +counter.getAttribute('data-target');
         let count = +counter.innerText.replace('%','');
 
-        let inc = target / 50;
+        let inc = target / 40;
 
         if(count < target){
             counter.innerText = Math.ceil(count + inc) + "%";
@@ -269,18 +286,6 @@ counters.forEach(counter => {
         }
     };
     update();
-});
-
-/* ===== SCROLL REVEAL ===== */
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-    sections.forEach(sec => {
-        let top = sec.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            sec.classList.add('active');
-        }
-    });
 });
 
 </script>
