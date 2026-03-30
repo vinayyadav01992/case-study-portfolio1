@@ -6,6 +6,7 @@
 <title>Skincare Google Ads Case Study</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
 
@@ -34,7 +35,6 @@ nav a {
     color: #00ffd5;
     text-decoration: none;
     margin-left: 25px;
-    font-size: 14px;
 }
 
 nav a:hover {
@@ -52,10 +52,6 @@ nav a:hover {
     background: linear-gradient(90deg, #00ffd5, #00a8ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.header p {
-    color: #aaa;
 }
 
 /* ===== METRICS ===== */
@@ -113,10 +109,15 @@ nav a:hover {
 .section-title {
     margin-top: 80px;
     font-size: 22px;
-    color: #00ffd5;
-    border-left: 4px solid #00ffd5;
     padding-left: 12px;
+    border-left: 4px solid;
 }
+
+/* ===== COLORS ===== */
+.challenge { border-color: #ff4d4d; color: #ff4d4d; }
+.strategy { border-color: #00a8ff; color: #00a8ff; }
+.execution { border-color: #ffaa00; color: #ffaa00; }
+.results { border-color: #00ff9d; color: #00ff9d; }
 
 /* ===== MINI GRID ===== */
 .mini-grid {
@@ -130,19 +131,32 @@ nav a:hover {
 .mini-card {
     background: rgba(255,255,255,0.03);
     border-radius: 16px;
-    padding: 18px;
+    padding: 20px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0,255,213,0.1);
+    border: 1px solid;
     transition: 0.3s;
 }
 
-.mini-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px rgba(0,255,213,0.25);
+/* COLORS PER SECTION */
+.challenge-card { border-color: rgba(255,77,77,0.3); }
+.challenge-card:hover { box-shadow: 0 0 20px rgba(255,77,77,0.4); }
+
+.strategy-card { border-color: rgba(0,168,255,0.3); }
+.strategy-card:hover { box-shadow: 0 0 20px rgba(0,168,255,0.4); }
+
+.execution-card { border-color: rgba(255,170,0,0.3); }
+.execution-card:hover { box-shadow: 0 0 20px rgba(255,170,0,0.4); }
+
+.results-card { border-color: rgba(0,255,157,0.3); }
+.results-card:hover { box-shadow: 0 0 20px rgba(0,255,157,0.4); }
+
+/* ===== ICON ===== */
+.icon {
+    margin-bottom: 10px;
 }
 
+/* ===== TEXT ===== */
 .mini-card h3 {
-    color: #00ffd5;
     font-size: 15px;
     margin-bottom: 6px;
 }
@@ -167,7 +181,6 @@ nav a:hover {
 
 <div class="container">
 
-<!-- NAV -->
 <nav>
     <div><strong>Vinay Portfolio</strong></div>
     <div>
@@ -177,135 +190,150 @@ nav a:hover {
     </div>
 </nav>
 
-<!-- HEADER -->
 <div class="header">
     <h1>Google Ads Growth</h1>
-    <p>Skincare Brand Case Study</p>
 </div>
 
 <!-- METRICS -->
 <div class="metrics">
 
-    <div class="card">
-        <h3>Conversions</h3>
-        <div class="circle" data-percent="53">
-            <span class="counter" data-target="53">0%</span>
-        </div>
-        <p>48 → 74</p>
-    </div>
+<div class="card">
+<h3>Conversions</h3>
+<div class="circle" data-percent="53"><span class="counter" data-target="53">0%</span></div>
+<p>48 → 74</p>
+</div>
 
-    <div class="card">
-        <h3>Clicks</h3>
-        <div class="circle" data-percent="14">
-            <span class="counter" data-target="14">0%</span>
-        </div>
-        <p>2012 → 1723</p>
-    </div>
+<div class="card">
+<h3>Clicks</h3>
+<div class="circle" data-percent="14"><span class="counter" data-target="14">0%</span></div>
+<p>2012 → 1723</p>
+</div>
 
-    <div class="card">
-        <h3>ROAS</h3>
-        <div class="circle" data-percent="30">
-            <span class="counter" data-target="30">0%</span>
-        </div>
-        <p>5.6x → 7.3x</p>
-    </div>
+<div class="card">
+<h3>ROAS</h3>
+<div class="circle" data-percent="30"><span class="counter" data-target="30">0%</span></div>
+<p>5.6x → 7.3x</p>
+</div>
 
-    <div class="card">
-        <h3>Conv. Value</h3>
-        <div class="circle" data-percent="28">
-            <span class="counter" data-target="28">0%</span>
-        </div>
-        <p>5095 → 6527</p>
-    </div>
+<div class="card">
+<h3>Conv. Value</h3>
+<div class="circle" data-percent="28"><span class="counter" data-target="28">0%</span></div>
+<p>5095 → 6527</p>
+</div>
 
 </div>
 
 <!-- CHALLENGES -->
-<div class="section-title">Challenges</div>
+<div class="section-title challenge">Challenges</div>
 <div class="mini-grid">
-    <div class="mini-card">
-        <h3>Low Conversion Rate</h3>
-        <p>Traffic was high but users were not converting effectively.</p>
-    </div>
-    <div class="mini-card">
-        <h3>Poor Targeting</h3>
-        <p>Ads were reaching irrelevant audiences causing wasted spend.</p>
-    </div>
-    <div class="mini-card">
-        <h3>Budget Inefficiency</h3>
-        <p>Significant spend was allocated to low-performing keywords.</p>
-    </div>
+
+<div class="mini-card challenge-card">
+<i data-lucide="alert-circle" class="icon"></i>
+<h3>Low Conversion</h3>
+<p>High traffic but low conversion efficiency.</p>
+</div>
+
+<div class="mini-card challenge-card">
+<i data-lucide="target" class="icon"></i>
+<h3>Poor Targeting</h3>
+<p>Irrelevant audience causing wasted spend.</p>
+</div>
+
+<div class="mini-card challenge-card">
+<i data-lucide="dollar-sign" class="icon"></i>
+<h3>Budget Waste</h3>
+<p>Spend allocated to low-performing keywords.</p>
+</div>
+
 </div>
 
 <!-- STRATEGY -->
-<div class="section-title">Strategy</div>
+<div class="section-title strategy">Strategy</div>
 <div class="mini-grid">
-    <div class="mini-card">
-        <h3>Keyword Refinement</h3>
-        <p>Focused on high-intent search terms.</p>
-    </div>
-    <div class="mini-card">
-        <h3>Audience Targeting</h3>
-        <p>Used remarketing and intent-based audiences.</p>
-    </div>
-    <div class="mini-card">
-        <h3>Smart Bidding</h3>
-        <p>Shifted to conversion-focused bidding strategies.</p>
-    </div>
+
+<div class="mini-card strategy-card">
+<i data-lucide="search" class="icon"></i>
+<h3>Keyword Focus</h3>
+<p>Targeted high-intent keywords.</p>
+</div>
+
+<div class="mini-card strategy-card">
+<i data-lucide="users" class="icon"></i>
+<h3>Audience Targeting</h3>
+<p>Used intent and remarketing audiences.</p>
+</div>
+
+<div class="mini-card strategy-card">
+<i data-lucide="trending-up" class="icon"></i>
+<h3>Smart Bidding</h3>
+<p>Shifted to conversion-focused bidding.</p>
+</div>
+
 </div>
 
 <!-- EXECUTION -->
-<div class="section-title">Execution</div>
+<div class="section-title execution">Execution</div>
 <div class="mini-grid">
-    <div class="mini-card">
-        <h3>Campaign Restructure</h3>
-        <p>Built tightly themed ad groups for relevance.</p>
-    </div>
-    <div class="mini-card">
-        <h3>Ad Optimization</h3>
-        <p>Improved copy for higher CTR.</p>
-    </div>
-    <div class="mini-card">
-        <h3>A/B Testing</h3>
-        <p>Tested creatives and keywords continuously.</p>
-    </div>
+
+<div class="mini-card execution-card">
+<i data-lucide="layers" class="icon"></i>
+<h3>Restructuring</h3>
+<p>Created focused ad groups.</p>
+</div>
+
+<div class="mini-card execution-card">
+<i data-lucide="edit" class="icon"></i>
+<h3>Ad Optimization</h3>
+<p>Improved ad copy and creatives.</p>
+</div>
+
+<div class="mini-card execution-card">
+<i data-lucide="shuffle" class="icon"></i>
+<h3>A/B Testing</h3>
+<p>Continuous testing for improvement.</p>
+</div>
+
 </div>
 
 <!-- RESULTS -->
-<div class="section-title">Results</div>
+<div class="section-title results">Results</div>
 <div class="mini-grid">
-    <div class="mini-card">
-        <h3>+53% Conversions</h3>
-        <p>Strong improvement in lead generation.</p>
-    </div>
-    <div class="mini-card">
-        <h3>+30% ROAS</h3>
-        <p>Higher return from optimized spend.</p>
-    </div>
-    <div class="mini-card">
-        <h3>+28% Revenue</h3>
-        <p>Growth in overall conversion value.</p>
-    </div>
-    <div class="mini-card">
-        <h3>-14% Click Waste</h3>
-        <p>Reduced irrelevant traffic significantly.</p>
-    </div>
+
+<div class="mini-card results-card">
+<i data-lucide="bar-chart" class="icon"></i>
+<h3>+53% Conversions</h3>
 </div>
 
-<!-- FOOTER -->
+<div class="mini-card results-card">
+<i data-lucide="activity" class="icon"></i>
+<h3>+30% ROAS</h3>
+</div>
+
+<div class="mini-card results-card">
+<i data-lucide="dollar-sign" class="icon"></i>
+<h3>+28% Revenue</h3>
+</div>
+
+<div class="mini-card results-card">
+<i data-lucide="filter" class="icon"></i>
+<h3>-14% Waste</h3>
+</div>
+
+</div>
+
 <div class="footer">
-    © 2024 Vinay Yadav | Performance Marketing Portfolio
+© Vinay Yadav | Performance Marketing
 </div>
 
 </div>
 
 <script>
+lucide.createIcons();
 
-/* CIRCLE ANIMATION */
+/* CIRCLE */
 document.querySelectorAll('.circle').forEach(circle => {
     let percent = circle.getAttribute('data-percent');
     let deg = percent * 3.6;
-
     setTimeout(() => {
         circle.style.background = `conic-gradient(#00ffd5 ${deg}deg, #1a2f2f ${deg}deg)`;
     }, 300);
@@ -327,7 +355,6 @@ document.querySelectorAll('.counter').forEach(counter => {
     };
     update();
 });
-
 </script>
 
 </body>
