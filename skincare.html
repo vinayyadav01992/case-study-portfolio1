@@ -5,14 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skincare Google Ads Case Study</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 
 /* ===== GLOBAL ===== */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #071a1a, #0e2f2f);
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #0f2f2f, #050d0d);
     color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
@@ -29,9 +32,10 @@ nav {
 }
 
 nav a {
-    color: #00e0c6;
+    color: #00ffd5;
     text-decoration: none;
     margin-left: 25px;
+    font-size: 14px;
     transition: 0.3s;
 }
 
@@ -42,12 +46,12 @@ nav a:hover {
 /* ===== HEADER ===== */
 .header {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .header h1 {
-    font-size: 36px;
-    background: linear-gradient(90deg, #00e0c6, #00a8ff);
+    font-size: 42px;
+    background: linear-gradient(90deg, #00ffd5, #00a8ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -60,46 +64,58 @@ nav a:hover {
 .metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 60px;
+    gap: 30px;
+    margin-top: 70px;
 }
 
 /* ===== CARD ===== */
 .card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0,255,213,0.1);
+    transition: 0.4s;
+    position: relative;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 224, 198, 0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 30px rgba(0,255,213,0.3);
 }
 
 /* ===== CIRCLE ===== */
 .circle {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
+    margin: 20px auto;
     border-radius: 50%;
-    margin: 15px auto;
-    background: conic-gradient(#00e0c6 var(--value), #1a3d3d 0%);
+    background: conic-gradient(#00ffd5 0deg, #00ffd5 0deg, #1a2f2f 0deg);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    background: #050d0d;
+    border-radius: 50%;
 }
 
 .circle span {
+    position: relative;
     font-size: 22px;
     font-weight: bold;
 }
 
 /* ===== TEXT ===== */
 .card h3 {
-    color: #00e0c6;
+    color: #00ffd5;
 }
 
 .card p {
@@ -109,28 +125,33 @@ nav a:hover {
 
 /* ===== SECTION ===== */
 .section {
-    margin-top: 70px;
+    margin-top: 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section h2 {
-    font-size: 22px;
-    border-left: 4px solid #00e0c6;
+    border-left: 4px solid #00ffd5;
     padding-left: 12px;
 }
 
 .section p {
     color: #ccc;
     line-height: 1.7;
-    margin-top: 10px;
 }
 
 /* ===== FOOTER ===== */
 .footer {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 100px;
     padding: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #888;
+    color: #777;
 }
 
 </style>
@@ -140,7 +161,6 @@ nav a:hover {
 
 <div class="container">
 
-<!-- NAV -->
 <nav>
     <div><strong>Vinay Portfolio</strong></div>
     <div>
@@ -150,92 +170,120 @@ nav a:hover {
     </div>
 </nav>
 
-<!-- HEADER -->
 <div class="header">
-    <h1>Google Ads Growth for Skincare Brand</h1>
-    <p>Feb–Apr 2024 vs Sep–Nov 2023</p>
+    <h1>Google Ads Growth</h1>
+    <p>Skincare Brand Case Study</p>
 </div>
 
-<!-- METRICS -->
 <div class="metrics">
 
     <div class="card">
         <h3>Conversions</h3>
-        <div class="circle" style="--value: 53%;">
-            <span>+53%</span>
+        <div class="circle" data-percent="53">
+            <span class="counter" data-target="53">0%</span>
         </div>
-        <p>48.37 → 74.14</p>
+        <p>48 → 74</p>
     </div>
 
     <div class="card">
         <h3>Clicks</h3>
-        <div class="circle" style="--value: 14%;">
-            <span>-14%</span>
+        <div class="circle" data-percent="14">
+            <span class="counter" data-target="14">0%</span>
         </div>
         <p>2012 → 1723</p>
     </div>
 
     <div class="card">
         <h3>ROAS</h3>
-        <div class="circle" style="--value: 30%;">
-            <span>+30%</span>
+        <div class="circle" data-percent="30">
+            <span class="counter" data-target="30">0%</span>
         </div>
-        <p>5.67x → 7.38x</p>
+        <p>5.6x → 7.3x</p>
     </div>
 
     <div class="card">
-        <h3>Conversion Value</h3>
-        <div class="circle" style="--value: 28%;">
-            <span>+28%</span>
+        <h3>Conv. Value</h3>
+        <div class="circle" data-percent="28">
+            <span class="counter" data-target="28">0%</span>
         </div>
         <p>5095 → 6527</p>
     </div>
 
 </div>
 
-<!-- CHALLENGE -->
 <div class="section">
-    <h2>Challenge</h2>
-    <p>
-        High traffic but inefficient conversions. Campaigns were generating clicks 
-        without strong ROI due to weak targeting and poor budget allocation.
-    </p>
+<h2>Challenge</h2>
+<p>High clicks but low ROI. Budget inefficiencies and poor targeting reduced campaign performance.</p>
 </div>
 
-<!-- STRATEGY -->
 <div class="section">
-    <h2>Strategy</h2>
-    <p>
-        Focused on high-intent keywords, removed wasteful spend, and optimized bidding. 
-        Implemented advanced audience targeting and conversion tracking to improve efficiency.
-    </p>
+<h2>Strategy</h2>
+<p>Focused on high-intent keywords, removed waste traffic, and optimized bidding strategies.</p>
 </div>
 
-<!-- EXECUTION -->
 <div class="section">
-    <h2>Execution</h2>
-    <p>
-        Rebuilt campaign structure, improved ad copies, and used extensions for higher CTR. 
-        Continuous testing and optimization ensured better performance.
-    </p>
+<h2>Execution</h2>
+<p>Improved ad copies, restructured campaigns, and applied continuous A/B testing.</p>
 </div>
 
-<!-- RESULTS -->
 <div class="section">
-    <h2>Results</h2>
-    <p>
-        Achieved 53% increase in conversions while reducing clicks by 14%, 
-        improving overall efficiency. ROAS increased by 30% and conversion value 
-        grew by 28%, showing stronger lead quality and better ROI.
-    </p>
+<h2>Results</h2>
+<p>53% increase in conversions, 30% boost in ROAS, and higher quality traffic with reduced spend waste.</p>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
-    © 2024 Vinay Yadav | Performance Marketing Portfolio
+© Vinay Yadav | Performance Marketing
 </div>
 
 </div>
+
+<script>
+
+/* ===== ANIMATION ===== */
+const circles = document.querySelectorAll('.circle');
+
+circles.forEach(circle => {
+    let percent = circle.getAttribute('data-percent');
+    let deg = percent * 3.6;
+
+    setTimeout(() => {
+        circle.style.background = `conic-gradient(#00ffd5 ${deg}deg, #1a2f2f ${deg}deg)`;
+    }, 300);
+});
+
+/* ===== COUNTER ===== */
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+    let update = () => {
+        let target = +counter.getAttribute('data-target');
+        let count = +counter.innerText.replace('%','');
+
+        let inc = target / 50;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + inc) + "%";
+            setTimeout(update, 30);
+        } else {
+            counter.innerText = target + "%";
+        }
+    };
+    update();
+});
+
+/* ===== SCROLL REVEAL ===== */
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+        let top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add('active');
+        }
+    });
+});
+
+</script>
 
 </body>
 </html>
