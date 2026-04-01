@@ -3,320 +3,354 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Ads Case Study</title>
+<title>Pump Manufacturer Case Study</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f4f6fb;
-    color: #333;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #061212;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-/* Container */
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* BACKGROUND */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
+}
+
+/* CONTAINER */
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 50px 0;
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
 }
 
-/* Header */
-.header {
-    text-align: center;
-    margin-bottom: 50px;
+h1, h2 {
+  text-align: center;
 }
 
-.header h1 {
-    font-size: 36px;
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 60px;
 }
 
-.header p {
-    color: #666;
-    margin-top: 10px;
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-/* Metrics */
-.metrics {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 50px;
-}
-
+/* CARD */
 .card {
-    padding: 25px;
-    border-radius: 15px;
-    color: white;
-    text-align: center;
-    transition: 0.3s;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
+  border-color: #4fd1c5;
 }
 
-.blue { background: linear-gradient(135deg, #4285F4, #6ea8ff); }
-.green { background: linear-gradient(135deg, #34A853, #5fd17a); }
-.red { background: linear-gradient(135deg, #EA4335, #ff7a6e); }
-.yellow { background: linear-gradient(135deg, #FBBC05, #ffd86b); }
-
-.card h2 {
-    font-size: 32px;
-    margin: 10px 0;
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.card span {
-    font-size: 14px;
-    opacity: 0.9;
+/* PROGRESS */
+.progress-circle {
+  width: 130px;
+  height: 130px;
+  margin: 20px auto;
+  position: relative;
 }
 
-/* Section */
-.section {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+.progress-circle svg {
+  transform: rotate(-90deg);
 }
 
-.section h3 {
-    margin-bottom: 15px;
-    font-size: 22px;
+.progress-circle circle {
+  fill: none;
+  stroke-width: 10;
 }
 
-.section p {
-    color: #555;
-    line-height: 1.6;
+.bg {
+  stroke: rgba(255,255,255,0.1);
 }
 
-/* Grid */
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.progress {
+  stroke: #4fd1c5;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: 2s ease;
 }
 
-/* Lists */
-ul {
-    padding-left: 20px;
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
-li {
-    margin-bottom: 10px;
+/* CTA */
+.cta {
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 1s;
 }
 
-/* Before After */
-.compare {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.cta.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.box {
-    flex: 1;
-    padding: 20px;
-    border-radius: 12px;
-    background: #f9fbff;
+button {
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  padding: 14px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 
-.box h4 {
-    margin-bottom: 10px;
+/* FLOAT BUTTONS */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  padding: 14px;
+  border-radius: 50%;
+  color: #fff;
 }
 
-.before {
-    border-left: 4px solid #EA4335;
-}
-
-.after {
-    border-left: 4px solid #34A853;
-}
-
-/* Highlight */
-.highlight {
-    margin-top: 15px;
-    padding: 15px;
-    background: #eef4ff;
-    border-left: 4px solid #4285F4;
-    border-radius: 8px;
-}
-
-/* Chart */
-.chart {
-    height: 200px;
-    background: linear-gradient(to top, #dfe8ff, #ffffff);
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.line {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, transparent 0%, #4285F4 50%, transparent 100%);
-    opacity: 0.3;
-    animation: move 4s infinite linear;
-}
-
-@keyframes move {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* Footer */
 .footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #888;
-}
-
-/* Responsive */
-@media(max-width: 900px) {
-    .metrics {
-        grid-template-columns: 1fr 1fr;
-    }
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
-    .compare {
-        flex-direction: column;
-    }
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
 }
 </style>
-
 </head>
 
 <body>
 
+<div class="navbar">
+  <div class="nav-container">
+    <b>AIM Tech Marketing</b>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="lawyer.html">Lawyer</a>
+      <a href="packers-movers.html">Packers & Movers</a>
+      <a href="pestcontrol.html">Pest Control</a>
+      <a href="badges.html">Military Patches</a>
+      <a href="wool-e-commerce.html">Yarn Store</a>
+      <a href="skincare.html">Skincare</a>
+      <a href="pump-manufacturer.html">Pump Manufacturer</a>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-bg" id="bg"></div>
+
 <div class="container">
 
-<!-- Header -->
-<div class="header">
-    <h1>Google Ads Case Study</h1>
-    <p>Scaling Conversions While Reducing Cost Per Lead</p>
+<h1>⚙️ Pump Manufacturer Case Study</h1>
+<p class="subtitle">Reducing Cost Per Lead While Increasing Conversions</p>
+
+<h2>📊 Results Overview</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Impressions</h3>
+    <div class="progress-circle" data-percent="100">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="100">0%</div>
+    </div>
+    <p>16,107</p>
+  </div>
+
+  <div class="card">
+    <h3>Ad Spend</h3>
+    <div class="progress-circle" data-percent="100">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="100">0%</div>
+    </div>
+    <p>$4,876</p>
+  </div>
+
+  <div class="card">
+    <h3>Conversions</h3>
+    <div class="progress-circle" data-percent="100">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="100">0%</div>
+    </div>
+    <p>83</p>
+  </div>
+
+  <div class="card">
+    <h3>Cost / Conversion</h3>
+    <div class="progress-circle" data-percent="58">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="58">0%</div>
+    </div>
+    <p>$58.76</p>
+  </div>
+
 </div>
 
-<!-- Metrics -->
-<div class="metrics">
-    <div class="card blue">
-        <span>Impressions</span>
-        <h2>16,107</h2>
-    </div>
-    <div class="card yellow">
-        <span>Ad Spend</span>
-        <h2>$4,876</h2>
-    </div>
-    <div class="card green">
-        <span>Conversions</span>
-        <h2>83</h2>
-    </div>
-    <div class="card red">
-        <span>Cost / Conv.</span>
-        <h2>$58.76</h2>
-    </div>
+<!-- OBJECTIVES -->
+<h2 style="margin-top:80px;">🎯 Objectives</h2>
+<div class="grid">
+  <div class="card">Reduce cost per lead</div>
+  <div class="card">Increase conversion volume</div>
+  <div class="card">Improve targeting accuracy</div>
+  <div class="card">Eliminate wasted ad spend</div>
 </div>
 
-<!-- Overview -->
-<div class="section">
-    <h3>Overview</h3>
-    <p>
-        This campaign focused on improving lead quality while reducing wasted ad spend. 
-        The account had active campaigns but lacked efficiency and targeting precision.
-        Our goal was to optimize performance and scale conversions sustainably.
-    </p>
+<!-- STRATEGY -->
+<h2 style="margin-top:80px;">🧠 Strategy</h2>
+<div class="grid">
+  <div class="card">Added high-intent keywords</div>
+  <div class="card">Removed irrelevant search terms</div>
+  <div class="card">Optimized location targeting</div>
+  <div class="card">Added audience segments</div>
+  <div class="card">Continuous bid & performance optimization</div>
 </div>
 
-<!-- Before After -->
-<div class="section">
-    <h3>Before vs After Optimization</h3>
-    <div class="compare">
-        <div class="box before">
-            <h4>Before</h4>
-            <ul>
-                <li>Higher CPA</li>
-                <li>Wasted spend on irrelevant queries</li>
-                <li>Weak audience targeting</li>
-                <li>Limited keyword coverage</li>
-            </ul>
-        </div>
-        <div class="box after">
-            <h4>After</h4>
-            <ul>
-                <li>CPA reduced by $24</li>
-                <li>More qualified traffic</li>
-                <li>Improved targeting accuracy</li>
-                <li>Higher conversion efficiency</li>
-            </ul>
-        </div>
-    </div>
+<!-- CHALLENGES -->
+<h2 style="margin-top:80px;">⚠️ Challenges</h2>
+<div class="grid">
+  <div class="card">High cost per conversion</div>
+  <div class="card">Irrelevant traffic</div>
+  <div class="card">Incorrect location targeting</div>
+  <div class="card">Limited keyword coverage</div>
 </div>
 
-<!-- Strategy -->
-<div class="section grid-2">
-    <div>
-        <h3>Challenges</h3>
-        <ul>
-            <li>High cost per conversion</li>
-            <li>Incorrect location targeting</li>
-            <li>Irrelevant traffic</li>
-            <li>Low optimization frequency</li>
-        </ul>
-    </div>
-    <div>
-        <h3>Strategy</h3>
-        <ul>
-            <li>Keyword expansion (high intent)</li>
-            <li>Search term cleanup</li>
-            <li>Audience targeting added</li>
-            <li>Location targeting fixed</li>
-        </ul>
-    </div>
+<!-- FINAL OUTCOME -->
+<h2 style="margin-top:80px;">🏆 Final Outcome</h2>
+<div class="grid">
+  <div class="card">83 conversions generated</div>
+  <div class="card">$1,600+ cost reduced</div>
+  <div class="card">CPA reduced by $24</div>
+  <div class="card">Improved lead quality & efficiency</div>
 </div>
 
-<!-- Results -->
-<div class="section">
-    <h3>Results</h3>
-    <ul>
-        <li>83 total conversions generated</li>
-        <li>Cost reduced by $1,624</li>
-        <li>CPA improved to $58.76</li>
-        <li>Conversion volume increased</li>
-    </ul>
-
-    <div class="highlight">
-        🚀 Strong improvement in efficiency — lower cost, higher output.
-    </div>
+<div class="cta">
+<h2>💬 Want Similar Results?</h2>
+<button onclick="window.open('https://calendly.com/vinayyadav01992')">
+Book Strategy Call
+</button>
 </div>
 
-<!-- Chart -->
-<div class="section">
-    <h3>Performance Trend</h3>
-    <div class="chart">
-        <div class="line"></div>
-    </div>
 </div>
 
-<!-- Conclusion -->
-<div class="section">
-    <h3>Conclusion</h3>
-    <p>
-        By refining campaign structure, targeting, and keyword strategy, the account achieved
-        better performance with reduced costs. This approach ensured scalable and consistent
-        lead generation moving forward.
-    </p>
-</div>
+<a href="https://wa.me/9589188668" class="whatsapp">💬</a>
 
 <div class="footer">
-    Google Ads Case Study • Lead Generation
+<p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
 </div>
 
-</div>
+<script>
+window.addEventListener("scroll", () => {
+  const bg = document.getElementById("bg");
+  bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+});
+
+const elements = document.querySelectorAll('.card, .cta');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
+
+elements.forEach(el => observer.observe(el));
+
+document.querySelectorAll('.progress-circle').forEach(el => {
+  const percent = parseFloat(el.dataset.percent);
+  const text = el.querySelector('.progress-text');
+  const target = parseFloat(text.dataset.target);
+
+  const circle = el.querySelector('.progress');
+  const circumference = 314;
+  const offset = circumference - (percent / 100) * circumference;
+
+  setTimeout(() => {
+    circle.style.strokeDashoffset = offset;
+  }, 500);
+
+  let count = 0;
+  const step = target / 60;
+
+  const counter = setInterval(() => {
+    count += step;
+    if (count >= target) {
+      count = target;
+      clearInterval(counter);
+    }
+    text.innerText = count.toFixed(0) + "%";
+  }, 20);
+});
+</script>
 
 </body>
 </html>
