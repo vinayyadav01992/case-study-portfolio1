@@ -3,269 +3,248 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Ads Case Study</title>
+<title>Pump Manufacturer Case Study</title>
 
 <style>
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #061212;
-  color: #fff;
-  overflow-x: hidden;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #020617;
+    color: #fff;
+}
+
+/* BACKGROUND GLOW */
+body::before {
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background: radial-gradient(circle, rgba(79,209,197,0.25), transparent);
+    top:-100px;
+    left:-100px;
+    filter: blur(120px);
 }
 
 /* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  padding: 15px 20px;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* BACKGROUND */
-.parallax-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index: -1;
+    position: sticky;
+    top:0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    padding:15px;
+    z-index:1000;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 120px 20px;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1 {
+    font-size:40px;
+    background: linear-gradient(90deg,#4fd1c5,#00f2fe);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /* GRID */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+    display:grid;
+    gap:20px;
 }
 
-/* PREMIUM CARD */
-.card {
-  position: relative;
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(12px);
-  overflow: hidden;
-  transition: 0.4s;
+/* CARDS */
+.card, .stat-card {
+    background: rgba(255,255,255,0.04);
+    padding:25px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.08);
+    position:relative;
+    overflow:hidden;
+    transition:0.4s;
 }
 
 /* GRADIENT BORDER */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: 16px;
-  background: linear-gradient(135deg,#4fd1c5,#00f2fe,#4fd1c5);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  opacity: 0;
-  transition: 0.4s;
+.card::before, .stat-card::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:18px;
+    padding:1px;
+    background: linear-gradient(120deg,#4fd1c5,transparent,#4fd1c5);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    opacity:0;
+    transition:0.4s;
 }
 
-.card:hover::before {
-  opacity: 1;
+.card:hover::before, .stat-card:hover::before {
+    opacity:1;
 }
 
-/* HOVER GLOW */
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px rgba(79,209,197,0.3);
+.card:hover, .stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow:0 20px 50px rgba(79,209,197,0.2);
 }
 
-/* ICON ANIMATION */
+/* ICON */
 .icon {
-  font-size: 26px;
-  margin-bottom: 12px;
-  display: inline-block;
-  transition: 0.4s;
+    font-size:26px;
+    margin-bottom:10px;
+    transition:0.4s;
 }
 
 .card:hover .icon {
-  transform: scale(1.2) rotate(6deg);
+    transform:scale(1.2) rotate(5deg);
 }
 
-/* HEADINGS */
-h1, h2 {
-  text-align: center;
+/* STATS */
+.stats {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:20px;
+    margin-top:50px;
 }
 
-.subtitle {
-  text-align: center;
-  color: #aaa;
-  margin-bottom: 60px;
-}
+.stat-card { text-align:center; }
 
-/* PROGRESS */
-.progress-circle {
-  width: 130px;
-  height: 130px;
-  margin: 20px auto;
-  position: relative;
-}
-
-.progress-circle svg {
-  transform: rotate(-90deg);
-}
-
-.progress-circle circle {
-  fill: none;
-  stroke-width: 10;
-}
-
-.bg { stroke: rgba(255,255,255,0.1); }
-
-.progress {
-  stroke: #4fd1c5;
-  stroke-dasharray: 314;
-  stroke-dashoffset: 314;
-  transition: 2s ease;
-}
-
-.progress-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+/* SECTION */
+.section { margin-top:80px; }
 
 /* CTA */
 .cta {
-  text-align: center;
-  margin-top: 100px;
+    background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+    color:#000;
+    text-align:center;
+    padding:60px 20px;
+    border-radius:16px;
+    margin-top:70px;
 }
 
 button {
-  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
-  padding: 14px 30px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+    padding:14px 30px;
+    border:none;
+    background:#000;
+    color:#fff;
+    border-radius:8px;
+    cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="navbar">
-  <div class="nav-container">
-    <b>AIM Tech Marketing</b>
-  </div>
-</div>
-
-<div class="parallax-bg" id="bg"></div>
+<div class="navbar"><b>AIM Tech Marketing</b></div>
 
 <div class="container">
 
-<h1>🚀 Google Ads Case Study</h1>
-<p class="subtitle">Scaling Revenue for Military & LE Patches</p>
+<!-- HERO -->
+<div class="hero">
+    <h1>Scaled Industrial Pump Leads Profitably</h1>
+    <p>Google Ads strategy for B2B pump manufacturer</p>
 
-<h2>📊 Results Overview</h2>
-
-<div class="grid">
-
-  <div class="card">
-    <h3>Conversions</h3>
-    <div class="progress-circle" data-percent="2.3">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="2.3">0%</div>
+    <!-- RESULTS TOP -->
+    <div class="stats">
+        <div class="stat-card">
+            <h2 data-target="4144">0</h2>
+            <p>Clicks (+55%)</p>
+        </div>
+        <div class="stat-card">
+            <h2 data-target="331">0</h2>
+            <p>Conversions (+2.3%)</p>
+        </div>
+        <div class="stat-card">
+            <h2 data-target="72">0</h2>
+            <p>ROAS (72.82X)</p>
+        </div>
+        <div class="stat-card">
+            <h2 data-target="276">0</h2>
+            <p>Revenue Growth %</p>
+        </div>
     </div>
-    <p>304.95 → 331.94</p>
-  </div>
-
-  <div class="card">
-    <h3>Conversion Value</h3>
-    <div class="progress-circle" data-percent="100">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="276">0%</div>
-    </div>
-    <p>$9,289 → $35,005</p>
-  </div>
-
 </div>
 
-<h2 style="margin-top:80px;">🎯 Objectives</h2>
+<!-- OBJECTIVES -->
+<div class="section">
+<h2>🎯 Objectives</h2>
 <div class="grid">
-  <div class="card"><div class="icon">🎯</div><b>Increase Conversions</b><p>Without increasing spend aggressively</p></div>
-  <div class="card"><div class="icon">💰</div><b>Boost Revenue</b><p>Improve conversion value</p></div>
-  <div class="card"><div class="icon">📈</div><b>Improve ROAS</b><p>Maximize profitability</p></div>
-  <div class="card"><div class="icon">🔥</div><b>High Intent Traffic</b><p>Target ready-to-buy users</p></div>
+<div class="card"><div class="icon">🎯</div><b>Increase Conversions</b><p>Without scaling spend aggressively</p></div>
+<div class="card"><div class="icon">💰</div><b>Boost Revenue</b><p>Improve conversion value</p></div>
+<div class="card"><div class="icon">📈</div><b>Improve ROAS</b><p>Maximize profitability</p></div>
+<div class="card"><div class="icon">🔥</div><b>High Intent Traffic</b><p>Target ready buyers</p></div>
+</div>
 </div>
 
-<h2 style="margin-top:80px;">🧠 Strategy</h2>
+<!-- STRATEGY -->
+<div class="section">
+<h2>🧠 Strategy</h2>
 <div class="grid">
-  <div class="card"><div class="icon">⚙️</div><b>Campaign Restructure</b><p>Brand, Search & PMax</p></div>
-  <div class="card"><div class="icon">🔍</div><b>Keyword Targeting</b><p>High intent keywords</p></div>
-  <div class="card"><div class="icon">🛒</div><b>Feed Optimization</b><p>Better product data</p></div>
-  <div class="card"><div class="icon">🎯</div><b>Remarketing</b><p>Re-engage visitors</p></div>
+<div class="card"><div class="icon">⚙️</div><b>Campaign Restructure</b><p>Search + PMax segmentation</p></div>
+<div class="card"><div class="icon">🔍</div><b>Keyword Targeting</b><p>High-intent queries</p></div>
+<div class="card"><div class="icon">🛒</div><b>Feed Optimization</b><p>Better product signals</p></div>
+<div class="card"><div class="icon">🎯</div><b>Remarketing</b><p>Re-engage visitors</p></div>
+<div class="card"><div class="icon">📊</div><b>Budget Scaling</b><p>Shift to top performers</p></div>
+</div>
 </div>
 
-<h2 style="margin-top:80px;">⚠️ Challenges</h2>
+<!-- CHALLENGES -->
+<div class="section">
+<h2>⚠️ Challenges</h2>
 <div class="grid">
-  <div class="card"><div class="icon">🎯</div><b>Niche Audience</b><p>Hard to target</p></div>
-  <div class="card"><div class="icon">📉</div><b>Low Data</b><p>Limited history</p></div>
-  <div class="card"><div class="icon">🔥</div><b>Competition</b><p>High CPC pressure</p></div>
-  <div class="card"><div class="icon">⚠️</div><b>Tracking Issues</b><p>Conversion gaps</p></div>
+<div class="card"><div class="icon">🎯</div><b>Niche Audience</b></div>
+<div class="card"><div class="icon">📉</div><b>Low Data</b></div>
+<div class="card"><div class="icon">🔥</div><b>High Competition</b></div>
+<div class="card"><div class="icon">⚠️</div><b>Tracking Issues</b></div>
+</div>
 </div>
 
-<h2 style="margin-top:80px;">🏆 Outcome</h2>
+<!-- OUTCOME -->
+<div class="section">
+<h2>🏆 Outcome</h2>
 <div class="grid">
-  <div class="card"><div class="icon">💰</div><b>+276% Revenue</b></div>
-  <div class="card"><div class="icon">📈</div><b>72.82X ROAS</b></div>
-  <div class="card"><div class="icon">🚀</div><b>+55% Traffic</b></div>
-  <div class="card"><div class="icon">⚙️</div><b>Scalable System</b></div>
+<div class="card"><div class="icon">💰</div><b>+276% Revenue</b></div>
+<div class="card"><div class="icon">📈</div><b>72.82X ROAS</b></div>
+<div class="card"><div class="icon">🚀</div><b>+55% Traffic</b></div>
+<div class="card"><div class="icon">⚙️</div><b>Scalable System</b></div>
+</div>
 </div>
 
+<!-- CTA -->
 <div class="cta">
-<h2>💬 Want Similar Results?</h2>
-<button>Contact Us</button>
+<h2>Want Similar Results?</h2>
+<p>I help B2B brands scale with Google Ads</p>
+<button onclick="window.open('https://wa.me/9589188668')">Book Free Call</button>
 </div>
 
 </div>
 
 <script>
-// PARALLAX
-window.addEventListener("scroll", () => {
-  document.getElementById("bg").style.transform =
-    `translateY(${window.scrollY * 0.3}px)`;
-});
+/* COUNTER */
+document.querySelectorAll("[data-target]").forEach(el=>{
+let target=+el.dataset.target;
+let count=0;
+let step=target/60;
 
-// PROGRESS
-document.querySelectorAll('.progress-circle').forEach(el => {
-  const percent = el.dataset.percent;
-  const circle = el.querySelector('.progress');
-  const radius = 50;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percent / 100) * circumference;
-
-  setTimeout(() => {
-    circle.style.strokeDashoffset = offset;
-  }, 500);
+function update(){
+count+=step;
+if(count<target){
+el.innerText=Math.floor(count);
+requestAnimationFrame(update);
+}else{
+el.innerText=target;
+}
+}
+update();
 });
 </script>
 
