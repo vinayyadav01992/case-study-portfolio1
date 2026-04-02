@@ -13,16 +13,40 @@ body {
   color: #fff;
 }
 
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
 /* CONTAINER */
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 100px 20px;
+  padding: 120px 20px 60px;
 }
 
-h1, h2 {
-  text-align: center;
-}
+h1, h2 { text-align: center; }
 
 .subtitle {
   text-align: center;
@@ -36,11 +60,10 @@ h1, h2 {
   height: 3px;
   background: linear-gradient(90deg,#4fd1c5,#00f2fe);
   margin: 20px auto 50px;
-  border-radius: 10px;
 }
 
 /* GRID */
-.grid {
+.grid, .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap: 25px;
@@ -56,24 +79,8 @@ h1, h2 {
   border: 1px solid rgba(255,255,255,0.08);
   transition: 0.4s;
   position: relative;
-  overflow: hidden;
 }
 
-/* GLOW */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  padding: 1px;
-  background: linear-gradient(135deg,#4fd1c5,#00f2fe,transparent);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-}
-
-/* HOVER */
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(0,255,200,0.2);
@@ -87,73 +94,91 @@ h1, h2 {
   position: relative;
 }
 
-.progress-circle svg {
-  transform: rotate(-90deg);
-}
+.progress-circle svg { transform: rotate(-90deg); }
+.progress-circle circle { fill: none; stroke-width: 10; }
 
-.progress-circle circle {
-  fill: none;
-  stroke-width: 10;
-}
-
-.bg {
-  stroke: rgba(255,255,255,0.1);
-}
-
+.bg { stroke: rgba(255,255,255,0.1); }
 .progress {
   stroke: #4fd1c5;
   stroke-dasharray: 314;
   stroke-dashoffset: 314;
-  transition: 2s ease;
+  transition: 2s;
 }
 
 .progress-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 /* SECTIONS */
-.section {
-  margin-top: 80px;
+.section { margin-top: 80px; }
+
+/* CONTACT CARD */
+.contact {
+  margin-top: 100px;
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+  background: linear-gradient(135deg,#0f2a2a,#061212);
+  border: 1px solid rgba(79,209,197,0.3);
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: 25px;
+.contact input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
 }
 
-/* ICON */
-.card span {
-  font-size: 26px;
-  display: block;
-  margin-bottom: 10px;
+button {
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
 }
 
-/* TEXT */
-.card p {
-  color: #cfdede;
-  font-size: 15px;
+/* FLOAT BUTTONS */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  padding: 14px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
 }
 
-/* ANIMATION */
-.card {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+.sticky-cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  cursor: pointer;
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="nav-container">
+    <b>AIM Tech Marketing</b>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Case Studies</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</div>
 
 <div class="container">
 
@@ -165,7 +190,6 @@ h1, h2 {
 
 <div class="grid">
 
-<!-- CONVERSIONS -->
 <div class="card">
 <h3>Conversions</h3>
 <div class="progress-circle" data-percent="2.3">
@@ -175,11 +199,10 @@ h1, h2 {
 </svg>
 <div class="progress-text" data-target="2.3">0%</div>
 </div>
-<p>304.95 → 331.94</p>
+<p>304 → 331</p>
 <div>+2.29%</div>
 </div>
 
-<!-- VALUE -->
 <div class="card">
 <h3>Conversion Value</h3>
 <div class="progress-circle" data-percent="76">
@@ -189,11 +212,10 @@ h1, h2 {
 </svg>
 <div class="progress-text" data-target="276">0%</div>
 </div>
-<p>9,289 → 35,005</p>
-<div>+276.83%</div>
+<p>9k → 35k</p>
+<div>+276%</div>
 </div>
 
-<!-- ROAS -->
 <div class="card">
 <h3>ROAS</h3>
 <div class="progress-circle" data-percent="66.8">
@@ -203,11 +225,10 @@ h1, h2 {
 </svg>
 <div class="progress-text" data-target="66.8">0%</div>
 </div>
-<p>43.65X → 72.82X</p>
-<div>+66.82%</div>
+<p>43X → 72X</p>
+<div>+66%</div>
 </div>
 
-<!-- CLICKS -->
 <div class="card">
 <h3>Clicks</h3>
 <div class="progress-circle" data-percent="55.7">
@@ -217,8 +238,8 @@ h1, h2 {
 </svg>
 <div class="progress-text" data-target="55.7">0%</div>
 </div>
-<p>2,660 → 4,144</p>
-<div>+55.69%</div>
+<p>2.6k → 4.1k</p>
+<div>+55%</div>
 </div>
 
 </div>
@@ -228,10 +249,10 @@ h1, h2 {
 <h2>🎯 Objectives</h2>
 <div class="divider"></div>
 <div class="card-grid">
-<div class="card"><span>📈</span><p>Increase conversions without scaling spend aggressively</p></div>
-<div class="card"><span>💰</span><p>Boost revenue and conversion value</p></div>
-<div class="card"><span>📊</span><p>Improve ROAS and profitability</p></div>
-<div class="card"><span>🎯</span><p>Drive high-intent traffic</p></div>
+<div class="card">Increase conversions without scaling spend aggressively</div>
+<div class="card">Boost revenue and conversion value</div>
+<div class="card">Improve ROAS and profitability</div>
+<div class="card">Drive high-intent traffic</div>
 </div>
 </div>
 
@@ -240,11 +261,11 @@ h1, h2 {
 <h2>🧠 Strategy</h2>
 <div class="divider"></div>
 <div class="card-grid">
-<div class="card"><span>🛠️</span><p>Restructured campaigns into Brand, Search & PMax</p></div>
-<div class="card"><span>🔍</span><p>Focused on high-intent keywords</p></div>
-<div class="card"><span>🛍️</span><p>Optimized feed & creatives</p></div>
-<div class="card"><span>🔁</span><p>Strong remarketing</p></div>
-<div class="card"><span>⚡</span><p>Budget shifted to winners</p></div>
+<div class="card">Restructured campaigns into Brand, Search & PMax</div>
+<div class="card">Focused on high-intent keywords</div>
+<div class="card">Optimized feed & creatives</div>
+<div class="card">Strong remarketing</div>
+<div class="card">Budget shifted to winners</div>
 </div>
 </div>
 
@@ -253,10 +274,10 @@ h1, h2 {
 <h2>⚠️ Challenges</h2>
 <div class="divider"></div>
 <div class="card-grid">
-<div class="card"><span>🎯</span><p>Niche targeting</p></div>
-<div class="card"><span>📉</span><p>Limited data</p></div>
-<div class="card"><span>🔥</span><p>High competition</p></div>
-<div class="card"><span>⚙️</span><p>Tracking issues</p></div>
+<div class="card">Niche targeting</div>
+<div class="card">Limited data</div>
+<div class="card">High competition</div>
+<div class="card">Tracking issues</div>
 </div>
 </div>
 
@@ -265,49 +286,54 @@ h1, h2 {
 <h2>🏆 Final Outcome</h2>
 <div class="divider"></div>
 <div class="card-grid">
-<div class="card"><span>🚀</span><p>276% revenue growth</p></div>
-<div class="card"><span>💎</span><p>ROAS → 72.82X</p></div>
-<div class="card"><span>📊</span><p>55% traffic increase</p></div>
-<div class="card"><span>📦</span><p>Scalable system built</p></div>
+<div class="card">276% revenue growth</div>
+<div class="card">ROAS → 72.82X</div>
+<div class="card">55% traffic increase</div>
+<div class="card">Scalable system built</div>
 </div>
 </div>
 
+<!-- CONTACT -->
+<div class="contact">
+<h2>💬 Get Similar Results</h2>
+<p>Book a free strategy call</p>
+<input placeholder="Your Name">
+<input placeholder="Your Email">
+<input placeholder="Your Phone">
+<br><br>
+<button onclick="window.open('https://calendly.com/vinayyadav01992')">
+Book Free Call
+</button>
 </div>
+
+</div>
+
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/9589188668" class="whatsapp">💬</a>
+<button class="sticky-cta" onclick="window.open('https://calendly.com/vinayyadav01992')">
+🚀 Get Free Plan
+</button>
 
 <script>
-// SCROLL ANIMATION
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-},{threshold:0.2});
-cards.forEach(card=>observer.observe(card));
-
 // PROGRESS
 document.querySelectorAll('.progress-circle').forEach(el=>{
-const percent=parseFloat(el.dataset.percent);
+const percent=el.dataset.percent;
 const circle=el.querySelector('.progress');
 const text=el.querySelector('.progress-text');
-const target=parseFloat(text.dataset.target);
+const target=text.dataset.target;
 
 const radius=50;
 const circumference=2*Math.PI*radius;
-const offset=circumference-(percent/100)*circumference;
-
-setTimeout(()=>{circle.style.strokeDashoffset=offset;},300);
+circle.style.strokeDashoffset=circumference-(percent/100)*circumference;
 
 let count=0;
-const step=target/60;
+const step=target/50;
 
 const counter=setInterval(()=>{
 count+=step;
 if(count>=target){count=target;clearInterval(counter);}
-text.innerText=count.toFixed(1)+"%";
+text.innerText=parseFloat(count).toFixed(1)+"%";
 },20);
-
 });
 </script>
 
