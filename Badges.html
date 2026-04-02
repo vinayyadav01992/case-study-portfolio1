@@ -11,62 +11,16 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #061212;
   color: #fff;
-  overflow-x: hidden;
-}
-
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  padding: 15px 20px;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links a {
-  margin-left: 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* PARALLAX */
-.parallax-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index: -1;
 }
 
 /* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 120px 20px;
+  padding: 100px 20px;
 }
 
-h1, h2 {
-  text-align: center;
-}
-
-.subtitle {
-  text-align: center;
-  color: #aaa;
-  margin-bottom: 60px;
-}
+h1, h2 { text-align: center; }
 
 /* GRID */
 .grid {
@@ -78,15 +32,13 @@ h1, h2 {
 /* CARD */
 .card {
   background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 25px;
   text-align: center;
   border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(80px);
+  transform: translateY(60px);
   opacity: 0;
   transition: all 0.6s ease;
-  position: relative;
 }
 
 /* ICON */
@@ -95,7 +47,7 @@ h1, h2 {
   margin-bottom: 10px;
 }
 
-/* HOVER GLOW */
+/* HOVER */
 .card:hover {
   transform: translateY(-10px) scale(1.03);
   border: 1px solid #4fd1c5;
@@ -154,7 +106,7 @@ h1, h2 {
   text-align: center;
   margin-top: 100px;
   opacity: 0;
-  transform: translateY(80px);
+  transform: translateY(60px);
   transition: 1s;
 }
 
@@ -164,103 +116,88 @@ h1, h2 {
 }
 
 button {
-  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
   padding: 14px 30px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-}
-
-/* FLOAT BUTTONS */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: #25D366;
-  padding: 14px;
-  border-radius: 50%;
-  color: #fff;
-}
-
-.sticky-cta {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
-  border: none;
-  padding: 14px 20px;
-  border-radius: 30px;
-}
-
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-box {
-  background: #0f2a2a;
-  padding: 30px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: center;
 }
 </style>
 </head>
 
 <body>
 
-<div class="navbar">
-  <div class="nav-container">
-    <b>AIM Tech Marketing</b>
-  </div>
-</div>
-
-<div class="parallax-bg" id="bg"></div>
-
 <div class="container">
 
 <h1>🚀 Google Ads Case Study</h1>
-<p class="subtitle">Scaling Revenue for Military & LE Patches</p>
 
-<!-- RESULTS -->
 <h2>📊 Results Overview</h2>
 
 <div class="grid">
 
-  <div class="card">
-    <div class="card-icon">📈</div>
-    <h3>Conversions</h3>
-    <p>304 → 331</p>
-    <b>+2.3%</b>
-  </div>
+<!-- CONVERSIONS -->
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Conversions</h3>
 
-  <div class="card">
-    <div class="card-icon">💰</div>
-    <h3>Revenue</h3>
-    <p>$9K → $35K</p>
-    <b>+276%</b>
-  </div>
+<div class="progress-circle" data-percent="2.3">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="2.3">0%</div>
+</div>
 
-  <div class="card">
-    <div class="card-icon">⚡</div>
-    <h3>ROAS</h3>
-    <p>43X → 72X</p>
-    <b>+66%</b>
-  </div>
+<p>304 → 331</p>
+</div>
 
-  <div class="card">
-    <div class="card-icon">🖱️</div>
-    <h3>Clicks</h3>
-    <p>2.6K → 4.1K</p>
-    <b>+55%</b>
-  </div>
+<!-- REVENUE -->
+<div class="card">
+<div class="card-icon">💰</div>
+<h3>Revenue</h3>
+
+<div class="progress-circle" data-percent="100">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="276">0%</div>
+</div>
+
+<p>$9K → $35K</p>
+</div>
+
+<!-- ROAS -->
+<div class="card">
+<div class="card-icon">⚡</div>
+<h3>ROAS</h3>
+
+<div class="progress-circle" data-percent="66.8">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="66.8">0%</div>
+</div>
+
+<p>43X → 72X</p>
+</div>
+
+<!-- CLICKS -->
+<div class="card">
+<div class="card-icon">🖱️</div>
+<h3>Clicks</h3>
+
+<div class="progress-circle" data-percent="55.7">
+<svg width="130" height="130">
+<circle class="bg" cx="65" cy="65" r="50"/>
+<circle class="progress" cx="65" cy="65" r="50"/>
+</svg>
+<div class="progress-text" data-target="55.7">0%</div>
+</div>
+
+<p>2.6K → 4.1K</p>
+</div>
 
 </div>
 
@@ -268,10 +205,10 @@ button {
 <div class="section">
 <h2>🎯 Objectives</h2>
 <div class="grid">
-  <div class="card"><div class="card-icon">🎯</div><p>Increase conversions</p></div>
-  <div class="card"><div class="card-icon">💰</div><p>Boost revenue</p></div>
-  <div class="card"><div class="card-icon">📊</div><p>Improve ROAS</p></div>
-  <div class="card"><div class="card-icon">🚀</div><p>High-intent traffic</p></div>
+<div class="card"><div class="card-icon">🎯</div><p>Increase conversions</p></div>
+<div class="card"><div class="card-icon">💰</div><p>Boost revenue</p></div>
+<div class="card"><div class="card-icon">📊</div><p>Improve ROAS</p></div>
+<div class="card"><div class="card-icon">🚀</div><p>High intent traffic</p></div>
 </div>
 </div>
 
@@ -279,11 +216,11 @@ button {
 <div class="section">
 <h2>🧠 Strategy</h2>
 <div class="grid">
-  <div class="card"><div class="card-icon">📦</div><p>Campaign restructuring</p></div>
-  <div class="card"><div class="card-icon">🔍</div><p>High intent keywords</p></div>
-  <div class="card"><div class="card-icon">🛒</div><p>PMax optimization</p></div>
-  <div class="card"><div class="card-icon">🔁</div><p>Remarketing</p></div>
-  <div class="card"><div class="card-icon">💸</div><p>Budget optimization</p></div>
+<div class="card"><div class="card-icon">📦</div><p>Campaign restructuring</p></div>
+<div class="card"><div class="card-icon">🔍</div><p>High intent keywords</p></div>
+<div class="card"><div class="card-icon">🛒</div><p>PMax optimization</p></div>
+<div class="card"><div class="card-icon">🔁</div><p>Remarketing</p></div>
+<div class="card"><div class="card-icon">💸</div><p>Budget optimization</p></div>
 </div>
 </div>
 
@@ -291,10 +228,10 @@ button {
 <div class="section">
 <h2>⚠️ Challenges</h2>
 <div class="grid">
-  <div class="card"><div class="card-icon">🎯</div><p>Niche targeting</p></div>
-  <div class="card"><div class="card-icon">📉</div><p>Low data</p></div>
-  <div class="card"><div class="card-icon">⚔️</div><p>High competition</p></div>
-  <div class="card"><div class="card-icon">🔧</div><p>Tracking issues</p></div>
+<div class="card"><div class="card-icon">🎯</div><p>Niche targeting</p></div>
+<div class="card"><div class="card-icon">📉</div><p>Low data</p></div>
+<div class="card"><div class="card-icon">⚔️</div><p>High competition</p></div>
+<div class="card"><div class="card-icon">🔧</div><p>Tracking issues</p></div>
 </div>
 </div>
 
@@ -302,10 +239,10 @@ button {
 <div class="section">
 <h2>🏆 Outcome</h2>
 <div class="grid">
-  <div class="card"><div class="card-icon">💰</div><p>276% revenue growth</p></div>
-  <div class="card"><div class="card-icon">📈</div><p>ROAS 72X</p></div>
-  <div class="card"><div class="card-icon">🖱️</div><p>55% traffic growth</p></div>
-  <div class="card"><div class="card-icon">⚙️</div><p>Scalable system</p></div>
+<div class="card"><div class="card-icon">💰</div><p>276% revenue growth</p></div>
+<div class="card"><div class="card-icon">📈</div><p>ROAS 72X</p></div>
+<div class="card"><div class="card-icon">🖱️</div><p>55% traffic growth</p></div>
+<div class="card"><div class="card-icon">⚙️</div><p>Scalable system</p></div>
 </div>
 </div>
 
@@ -318,18 +255,43 @@ button {
 </div>
 
 <script>
-// Scroll animation
+// SCROLL ANIMATION
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('show');
-  });
+entries.forEach(e => {
+if (e.isIntersecting) e.target.classList.add('show');
+});
 });
 document.querySelectorAll('.card, .cta').forEach(el => observer.observe(el));
 
-// Parallax
-window.addEventListener("scroll", () => {
-  document.getElementById("bg").style.transform =
-    `translateY(${window.scrollY * 0.3}px)`;
+// PROGRESS + COUNT
+document.querySelectorAll('.progress-circle').forEach(el => {
+
+const percent = parseFloat(el.dataset.percent);
+const text = el.querySelector('.progress-text');
+const target = parseFloat(text.dataset.target);
+
+const circle = el.querySelector('.progress');
+const radius = 50;
+const circumference = 2 * Math.PI * radius;
+
+const offset = circumference - (percent / 100) * circumference;
+
+setTimeout(() => {
+circle.style.strokeDashoffset = offset;
+}, 300);
+
+let count = 0;
+const step = target / 60;
+
+const counter = setInterval(() => {
+count += step;
+if (count >= target) {
+count = target;
+clearInterval(counter);
+}
+text.innerText = count.toFixed(1) + "%";
+}, 20);
+
 });
 </script>
 
