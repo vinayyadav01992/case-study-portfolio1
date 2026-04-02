@@ -40,11 +40,9 @@ body {
   font-size: 14px;
 }
 
-/* PARALLAX */
+/* BACKGROUND */
 .parallax-bg {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
@@ -71,8 +69,8 @@ h1, h2 {
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 /* CARD */
@@ -80,22 +78,31 @@ h1, h2 {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  padding: 25px;
-  text-align: left;
+  padding: 20px;
   border: 1px solid rgba(255,255,255,0.08);
   transform: translateY(80px);
   opacity: 0;
-  transition: all 0.8s ease;
+  transition: all 0.6s ease;
+  text-align: left;
+  position: relative;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: #4fd1c5;
+  box-shadow: 0 0 25px rgba(79,209,197,0.25);
 }
 
 .card.show {
   transform: translateY(0);
   opacity: 1;
+}
+
+/* ICON */
+.icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
 /* PROGRESS */
@@ -115,10 +122,7 @@ h1, h2 {
   stroke-width: 10;
 }
 
-.bg {
-  stroke: rgba(255,255,255,0.1);
-}
-
+.bg { stroke: rgba(255,255,255,0.1); }
 .progress {
   stroke: #4fd1c5;
   stroke-dasharray: 314;
@@ -131,7 +135,6 @@ h1, h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
 }
 
 /* CTA */
@@ -163,17 +166,6 @@ button {
 <div class="navbar">
   <div class="nav-container">
     <b>AIM Tech Marketing</b>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="healthcare.html">Healthcare</a>
-      <a href="lawyer.html">Lawyer</a>
-      <a href="packers-movers.html">Packers & Movers</a>
-      <a href="pestcontrol.html">Pest Control</a>
-      <a href="Badges.html">Military Patches</a>
-      <a href="wool-e-commerce.html">Yarn Store</a>
-      <a href="skincare.html">Skincare</a>
-      <a href="pump-manufacturer.html">Pump Manufacturer</a>
-    </div>
   </div>
 </div>
 
@@ -188,49 +180,67 @@ button {
 
 <div class="grid">
 
-  <!-- metrics unchanged -->
-  <!-- (keeping your original metrics section as is) -->
+  <div class="card">
+    <h3>Conversions</h3>
+    <div class="progress-circle" data-percent="2.3">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="2.3">0%</div>
+    </div>
+    <p>304.95 → 331.94</p>
+  </div>
+
+  <div class="card">
+    <h3>Revenue</h3>
+    <div class="progress-circle" data-percent="100">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="276">0%</div>
+    </div>
+    <p>$9,289 → $35,005</p>
+  </div>
 
 </div>
 
-<!-- NEW CARD-STYLE SECTIONS -->
-
-<h2 style="margin-top:80px;">📌 Case Study Breakdown</h2>
-
+<!-- OBJECTIVES -->
+<h2 style="margin-top:80px;">🎯 Objectives</h2>
 <div class="grid">
+  <div class="card"><div class="icon">🎯</div>Increase conversions without scaling spend aggressively</div>
+  <div class="card"><div class="icon">💰</div>Boost revenue and conversion value</div>
+  <div class="card"><div class="icon">📈</div>Improve ROAS and profitability</div>
+  <div class="card"><div class="icon">🎯</div>Drive high-intent traffic</div>
+</div>
 
-  <div class="card">
-    <h3>🎯 Objectives</h3>
-    <p>Increase conversions without scaling spend aggressively</p>
-    <p>Boost revenue and conversion value</p>
-    <p>Improve ROAS and profitability</p>
-    <p>Drive high-intent traffic</p>
-  </div>
+<!-- STRATEGY -->
+<h2 style="margin-top:80px;">🧠 Strategy</h2>
+<div class="grid">
+  <div class="card"><div class="icon">⚙️</div>Restructured campaigns</div>
+  <div class="card"><div class="icon">🔍</div>High-intent keywords</div>
+  <div class="card"><div class="icon">🛒</div>Optimized feed & creatives</div>
+  <div class="card"><div class="icon">🎯</div>Remarketing strategy</div>
+  <div class="card"><div class="icon">📊</div>Budget optimization</div>
+</div>
 
-  <div class="card">
-    <h3>🧠 Strategy</h3>
-    <p>Restructured campaigns into Brand, Search & Performance Max</p>
-    <p>Focused on high-intent keywords</p>
-    <p>Optimized product feed & creatives</p>
-    <p>Implemented strong remarketing strategy</p>
-  </div>
+<!-- CHALLENGES -->
+<h2 style="margin-top:80px;">⚠️ Challenges</h2>
+<div class="grid">
+  <div class="card"><div class="icon">🎯</div>Niche targeting</div>
+  <div class="card"><div class="icon">📉</div>Limited data</div>
+  <div class="card"><div class="icon">🔥</div>High competition</div>
+  <div class="card"><div class="icon">⚠️</div>Tracking issues</div>
+</div>
 
-  <div class="card">
-    <h3>⚠️ Challenges</h3>
-    <p>Niche targeting</p>
-    <p>Limited initial data</p>
-    <p>High competition</p>
-    <p>Tracking issues</p>
-  </div>
-
-  <div class="card">
-    <h3>🏆 Outcome</h3>
-    <p>276% increase in revenue</p>
-    <p>ROAS improved to 72.82X</p>
-    <p>55% increase in traffic</p>
-    <p>Built scalable system</p>
-  </div>
-
+<!-- OUTCOME -->
+<h2 style="margin-top:80px;">🏆 Outcome</h2>
+<div class="grid">
+  <div class="card"><div class="icon">💰</div>276% revenue growth</div>
+  <div class="card"><div class="icon">📈</div>ROAS to 72.82X</div>
+  <div class="card"><div class="icon">🚀</div>55% traffic increase</div>
+  <div class="card"><div class="icon">⚙️</div>Scalable system built</div>
 </div>
 
 <div class="cta">
@@ -240,20 +250,7 @@ button {
 
 </div>
 
-<!-- FLOAT BUTTONS -->
-<a href="https://wa.me/9589188668" class="whatsapp">💬</a>
-<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
-
-<!-- POPUP + FOOTER SAME AS YOUR CODE -->
-
 <script>
-window.addEventListener("scroll", () => {
-  const bg = document.getElementById("bg");
-  if (bg) {
-    bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-  }
-});
-
 const elements = document.querySelectorAll('.card, .cta');
 
 const observer = new IntersectionObserver(entries => {
