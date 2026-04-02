@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Ads Case Study</title>
+<title>Case Study</title>
 
 <style>
 body {
@@ -11,258 +11,222 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #061212;
   color: #fff;
-  overflow-x: hidden;
-}
-
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  padding: 15px 20px;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links a {
-  margin-left: 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* BACKGROUND */
-.parallax-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index: -1;
 }
 
 /* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 120px 20px;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-.subtitle {
-  text-align: center;
-  color: #aaa;
-  margin-bottom: 60px;
+  padding: 100px 20px;
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(80px);
-  opacity: 0;
-  transition: all 0.6s ease;
-  text-align: left;
   position: relative;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 22px;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* GRADIENT BORDER */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent, #4fd1c5, transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: #4fd1c5;
-  box-shadow: 0 0 25px rgba(79,209,197,0.25);
-}
-
-.card.show {
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 0 30px rgba(79,209,197,0.25);
 }
 
 /* ICON */
 .icon {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 12px;
   display: inline-block;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* PROGRESS */
-.progress-circle {
-  width: 130px;
-  height: 130px;
-  margin: 20px auto;
-  position: relative;
+.card:hover .icon {
+  transform: scale(1.2) rotate(5deg);
 }
 
-.progress-circle svg {
-  transform: rotate(-90deg);
+/* FLOAT ANIMATION */
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
-.progress-circle circle {
-  fill: none;
-  stroke-width: 10;
-}
-
-.bg { stroke: rgba(255,255,255,0.1); }
-.progress {
-  stroke: #4fd1c5;
-  stroke-dasharray: 314;
-  stroke-dashoffset: 314;
-  transition: 2s ease;
-}
-
-.progress-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* CTA */
-.cta {
+/* HEADINGS */
+h2 {
+  margin-top: 80px;
   text-align: center;
-  margin-top: 100px;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: 1s;
 }
 
-.cta.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-button {
-  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
-  padding: 14px 30px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+/* TEXT */
+.card p {
+  margin: 6px 0;
+  color: #ccc;
+  font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="navbar">
-  <div class="nav-container">
-    <b>AIM Tech Marketing</b>
-  </div>
-</div>
-
-<div class="parallax-bg" id="bg"></div>
-
 <div class="container">
 
-<h1>🚀 Google Ads Case Study</h1>
-<p class="subtitle">Scaling Revenue for Military & LE Patches</p>
-
-<h2>📊 Results Overview</h2>
-
+<h2>🎯 Objectives</h2>
 <div class="grid">
 
   <div class="card">
-    <h3>Conversions</h3>
-    <div class="progress-circle" data-percent="2.3">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="2.3">0%</div>
-    </div>
-    <p>304.95 → 331.94</p>
+    <div class="icon">🎯</div>
+    <p><b>Conversion Focus</b></p>
+    <p>Increase conversions without increasing ad spend aggressively</p>
   </div>
 
   <div class="card">
-    <h3>Revenue</h3>
-    <div class="progress-circle" data-percent="100">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="276">0%</div>
-    </div>
-    <p>$9,289 → $35,005</p>
+    <div class="icon">💰</div>
+    <p><b>Revenue Growth</b></p>
+    <p>Boost overall revenue and maximize conversion value</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📈</div>
+    <p><b>ROAS Optimization</b></p>
+    <p>Improve return on ad spend and campaign profitability</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🎯</div>
+    <p><b>High Intent Traffic</b></p>
+    <p>Drive users with strong buying intent</p>
   </div>
 
 </div>
 
-<!-- OBJECTIVES -->
-<h2 style="margin-top:80px;">🎯 Objectives</h2>
+
+<h2>🧠 Strategy</h2>
 <div class="grid">
-  <div class="card"><div class="icon">🎯</div>Increase conversions without scaling spend aggressively</div>
-  <div class="card"><div class="icon">💰</div>Boost revenue and conversion value</div>
-  <div class="card"><div class="icon">📈</div>Improve ROAS and profitability</div>
-  <div class="card"><div class="icon">🎯</div>Drive high-intent traffic</div>
+
+  <div class="card">
+    <div class="icon">⚙️</div>
+    <p><b>Campaign Restructure</b></p>
+    <p>Separated Brand, Search & Performance Max campaigns</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🔍</div>
+    <p><b>Keyword Intent</b></p>
+    <p>Focused only on high-converting search queries</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🛒</div>
+    <p><b>Feed Optimization</b></p>
+    <p>Improved product titles, descriptions & attributes</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🎯</div>
+    <p><b>Remarketing Funnel</b></p>
+    <p>Re-engaged visitors with dynamic ads</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📊</div>
+    <p><b>Budget Scaling</b></p>
+    <p>Shifted budget toward top-performing campaigns</p>
+  </div>
+
 </div>
 
-<!-- STRATEGY -->
-<h2 style="margin-top:80px;">🧠 Strategy</h2>
+
+<h2>⚠️ Challenges</h2>
 <div class="grid">
-  <div class="card"><div class="icon">⚙️</div>Restructured campaigns</div>
-  <div class="card"><div class="icon">🔍</div>High-intent keywords</div>
-  <div class="card"><div class="icon">🛒</div>Optimized feed & creatives</div>
-  <div class="card"><div class="icon">🎯</div>Remarketing strategy</div>
-  <div class="card"><div class="icon">📊</div>Budget optimization</div>
+
+  <div class="card">
+    <div class="icon">🎯</div>
+    <p><b>Niche Market</b></p>
+    <p>Highly specific audience targeting required</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📉</div>
+    <p><b>Low Initial Data</b></p>
+    <p>Limited conversion data for optimization</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🔥</div>
+    <p><b>High Competition</b></p>
+    <p>Competing against established brands</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">⚠️</div>
+    <p><b>Tracking Issues</b></p>
+    <p>Conversion tracking inconsistencies</p>
+  </div>
+
 </div>
 
-<!-- CHALLENGES -->
-<h2 style="margin-top:80px;">⚠️ Challenges</h2>
+
+<h2>🏆 Outcome</h2>
 <div class="grid">
-  <div class="card"><div class="icon">🎯</div>Niche targeting</div>
-  <div class="card"><div class="icon">📉</div>Limited data</div>
-  <div class="card"><div class="icon">🔥</div>High competition</div>
-  <div class="card"><div class="icon">⚠️</div>Tracking issues</div>
+
+  <div class="card">
+    <div class="icon">💰</div>
+    <p><b>Revenue Growth</b></p>
+    <p>276% increase in total revenue</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">📈</div>
+    <p><b>ROAS</b></p>
+    <p>Improved to 72.82X</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🚀</div>
+    <p><b>Traffic</b></p>
+    <p>55% increase in website visitors</p>
+  </div>
+
+  <div class="card">
+    <div class="icon">⚙️</div>
+    <p><b>Scalability</b></p>
+    <p>Built a long-term scalable system</p>
+  </div>
+
 </div>
 
-<!-- OUTCOME -->
-<h2 style="margin-top:80px;">🏆 Outcome</h2>
-<div class="grid">
-  <div class="card"><div class="icon">💰</div>276% revenue growth</div>
-  <div class="card"><div class="icon">📈</div>ROAS to 72.82X</div>
-  <div class="card"><div class="icon">🚀</div>55% traffic increase</div>
-  <div class="card"><div class="icon">⚙️</div>Scalable system built</div>
 </div>
-
-<div class="cta">
-<h2>💬 Want Similar Results?</h2>
-<button>Contact Us</button>
-</div>
-
-</div>
-
-<script>
-const elements = document.querySelectorAll('.card, .cta');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.3 });
-
-elements.forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
