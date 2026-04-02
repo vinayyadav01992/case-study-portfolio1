@@ -33,18 +33,9 @@ body {
   align-items: center;
 }
 
-.nav-links a {
-  margin-left: 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* PARALLAX */
+/* BACKGROUND */
 .parallax-bg {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
@@ -58,6 +49,62 @@ body {
   padding: 120px 20px;
 }
 
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* PREMIUM CARD */
+.card {
+  position: relative;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+/* GRADIENT BORDER */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 16px;
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe,#4fd1c5);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* HOVER GLOW */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(79,209,197,0.3);
+}
+
+/* ICON ANIMATION */
+.icon {
+  font-size: 26px;
+  margin-bottom: 12px;
+  display: inline-block;
+  transition: 0.4s;
+}
+
+.card:hover .icon {
+  transform: scale(1.2) rotate(6deg);
+}
+
+/* HEADINGS */
 h1, h2 {
   text-align: center;
 }
@@ -66,59 +113,6 @@ h1, h2 {
   text-align: center;
   color: #aaa;
   margin-bottom: 60px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-/* CARD */
-.card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(80px);
-  opacity: 0;
-  transition: all 0.8s ease;
-}
-
-.card.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.card.active {
-  border: 1px solid #4fd1c5;
-  box-shadow: 0 0 25px rgba(79,209,197,0.3);
-}
-
-/* STORY */
-.story-section {
-  margin-top: 80px;
-  padding: 40px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 1s ease;
-}
-
-.story-section.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.story-section.active {
-  border-left: 6px solid #4fd1c5;
-  background: rgba(79,209,197,0.08);
 }
 
 /* PROGRESS */
@@ -138,9 +132,7 @@ h1, h2 {
   stroke-width: 10;
 }
 
-.bg {
-  stroke: rgba(255,255,255,0.1);
-}
+.bg { stroke: rgba(255,255,255,0.1); }
 
 .progress {
   stroke: #4fd1c5;
@@ -154,21 +146,12 @@ h1, h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
 }
 
 /* CTA */
 .cta {
   text-align: center;
   margin-top: 100px;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: 1s;
-}
-
-.cta.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 button {
@@ -186,17 +169,6 @@ button {
 <div class="navbar">
   <div class="nav-container">
     <b>AIM Tech Marketing</b>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="healthcare.html">Healthcare</a>
-      <a href="lawyer.html">Lawyer</a>
-      <a href="packers-movers.html">Packers & Movers</a>
-      <a href="pestcontrol.html">Pest Control</a>
-      <a href="Badges.html">Military Patches</a>
-      <a href="wool-e-commerce.html">Yarn Store</a>
-      <a href="skincare.html">Skincare</a>
-      <a href="pump-manufacturer.html">Pump Manufacturer</a>
-    </div>
   </div>
 </div>
 
@@ -221,7 +193,6 @@ button {
       <div class="progress-text" data-target="2.3">0%</div>
     </div>
     <p>304.95 → 331.94</p>
-    <div>+2.29%</div>
   </div>
 
   <div class="card">
@@ -233,77 +204,41 @@ button {
       </svg>
       <div class="progress-text" data-target="276">0%</div>
     </div>
-    <p>9,289 → 35,005</p>
-    <div>+276.83%</div>
-  </div>
-
-  <div class="card">
-    <h3>ROAS</h3>
-    <div class="progress-circle" data-percent="66.8">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="66.8">0%</div>
-    </div>
-    <p>43.65X → 72.82X</p>
-    <div>+66.82%</div>
-  </div>
-
-  <div class="card">
-    <h3>Clicks</h3>
-    <div class="progress-circle" data-percent="55.7">
-      <svg width="130" height="130">
-        <circle class="bg" cx="65" cy="65" r="50"/>
-        <circle class="progress" cx="65" cy="65" r="50"/>
-      </svg>
-      <div class="progress-text" data-target="55.7">0%</div>
-    </div>
-    <p>2,660 → 4,144</p>
-    <div>+55.69%</div>
+    <p>$9,289 → $35,005</p>
   </div>
 
 </div>
 
-<div class="story-section">
-<h2>🎯 Objectives</h2>
-<ul>
-<li>Increase conversions without scaling spend aggressively</li>
-<li>Boost revenue and conversion value</li>
-<li>Improve ROAS and profitability</li>
-<li>Drive high-intent traffic</li>
-</ul>
+<h2 style="margin-top:80px;">🎯 Objectives</h2>
+<div class="grid">
+  <div class="card"><div class="icon">🎯</div><b>Increase Conversions</b><p>Without increasing spend aggressively</p></div>
+  <div class="card"><div class="icon">💰</div><b>Boost Revenue</b><p>Improve conversion value</p></div>
+  <div class="card"><div class="icon">📈</div><b>Improve ROAS</b><p>Maximize profitability</p></div>
+  <div class="card"><div class="icon">🔥</div><b>High Intent Traffic</b><p>Target ready-to-buy users</p></div>
 </div>
 
-<div class="story-section">
-<h2>🧠 Strategy</h2>
-<ul>
-<li>Restructured campaigns into Brand, Search & Performance Max</li>
-<li>Focused on high-intent keywords</li>
-<li>Optimized product feed & creatives for PMax</li>
-<li>Implemented strong remarketing strategy</li>
-<li>Shifted budget to high-performing campaigns</li>
-</ul>
+<h2 style="margin-top:80px;">🧠 Strategy</h2>
+<div class="grid">
+  <div class="card"><div class="icon">⚙️</div><b>Campaign Restructure</b><p>Brand, Search & PMax</p></div>
+  <div class="card"><div class="icon">🔍</div><b>Keyword Targeting</b><p>High intent keywords</p></div>
+  <div class="card"><div class="icon">🛒</div><b>Feed Optimization</b><p>Better product data</p></div>
+  <div class="card"><div class="icon">🎯</div><b>Remarketing</b><p>Re-engage visitors</p></div>
 </div>
 
-<div class="story-section">
-<h2>⚠️ Challenges</h2>
-<ul>
-<li>Niche targeting</li>
-<li>Limited initial data</li>
-<li>High competition</li>
-<li>Tracking issues</li>
-</ul>
+<h2 style="margin-top:80px;">⚠️ Challenges</h2>
+<div class="grid">
+  <div class="card"><div class="icon">🎯</div><b>Niche Audience</b><p>Hard to target</p></div>
+  <div class="card"><div class="icon">📉</div><b>Low Data</b><p>Limited history</p></div>
+  <div class="card"><div class="icon">🔥</div><b>Competition</b><p>High CPC pressure</p></div>
+  <div class="card"><div class="icon">⚠️</div><b>Tracking Issues</b><p>Conversion gaps</p></div>
 </div>
 
-<div class="story-section">
-<h2>🏆 Final Outcome</h2>
-<ul>
-<li>276% increase in revenue</li>
-<li>ROAS improved to 72.82X</li>
-<li>55% increase in traffic</li>
-<li>Scalable system built</li>
-</ul>
+<h2 style="margin-top:80px;">🏆 Outcome</h2>
+<div class="grid">
+  <div class="card"><div class="icon">💰</div><b>+276% Revenue</b></div>
+  <div class="card"><div class="icon">📈</div><b>72.82X ROAS</b></div>
+  <div class="card"><div class="icon">🚀</div><b>+55% Traffic</b></div>
+  <div class="card"><div class="icon">⚙️</div><b>Scalable System</b></div>
 </div>
 
 <div class="cta">
@@ -313,178 +248,25 @@ button {
 
 </div>
 
-<!-- FLOAT BUTTONS -->
-<a href="https://wa.me/9589188668" class="whatsapp">💬</a>
-<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
-
-<!-- POPUP -->
-<div id="leadPopup" class="popup">
-  <div class="popup-box">
-    <span onclick="closePopup()" style="cursor:pointer;">×</span>
-    <h2>Get Free Strategy Call</h2>
-    <input placeholder="Your Name">
-    <input placeholder="Your Email">
-    <input placeholder="Your Phone">
-    <button onclick="openCalendly()">Book Call</button>
-  </div>
-</div>
-
-<!-- BACK BUTTON -->
-<div style="text-align:center; margin:50px;">
-  <a href="index.html" style="
-    padding:12px 25px;
-    background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-    border-radius:8px;
-    text-decoration:none;
-    color:#000;
-    font-weight:bold;">
-    ← Back to Case Studies
-  </a>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
-</div>
-
-<style>
-/* FLOAT BUTTONS */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: #25D366;
-  padding: 14px;
-  border-radius: 50%;
-  font-size: 20px;
-  text-decoration: none;
-  color: #fff;
-  z-index: 1000;
-}
-
-.sticky-cta {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
-  border: none;
-  padding: 14px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-.popup-box {
-  background: #0f2a2a;
-  padding: 30px;
-  border-radius: 12px;
-  width: 300px;
-  text-align: center;
-}
-
-.popup-box input {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 30px;
-  color: #aaa;
-}
-</style>
-
 <script>
-// ============================
 // PARALLAX
-// ============================
 window.addEventListener("scroll", () => {
-  const bg = document.getElementById("bg");
-  if (bg) {
-    bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-  }
+  document.getElementById("bg").style.transform =
+    `translateY(${window.scrollY * 0.3}px)`;
 });
 
-// ============================
-// SCROLL REVEAL (MERGED)
-// ============================
-const elements = document.querySelectorAll('.card, .story-section, .cta');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.3 });
-
-elements.forEach(el => observer.observe(el));
-
-// ============================
-// PROGRESS + COUNT-UP
-// ============================
+// PROGRESS
 document.querySelectorAll('.progress-circle').forEach(el => {
-  const percent = parseFloat(el.dataset.percent) || 0;
-  const text = el.querySelector('.progress-text');
-  const target = parseFloat(text.dataset.target) || 0;
-
+  const percent = el.dataset.percent;
   const circle = el.querySelector('.progress');
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
-
   const offset = circumference - (percent / 100) * circumference;
 
   setTimeout(() => {
     circle.style.strokeDashoffset = offset;
   }, 500);
-
-  let count = 0;
-  const step = target / 60;
-
-  const counter = setInterval(() => {
-    count += step;
-    if (count >= target) {
-      count = target;
-      clearInterval(counter);
-    }
-    text.innerText = count.toFixed(1) + "%";
-  }, 20);
 });
-
-// ============================
-// POPUP FUNCTIONS
-// ============================
-function openPopup() {
-  document.getElementById("leadPopup").style.display = "flex";
-}
-
-function closePopup() {
-  document.getElementById("leadPopup").style.display = "none";
-}
-
-function openCalendly() {
-  window.open("https://calendly.com/vinayyadav01992", "_blank");
-}
-
-// Auto popup after 5 sec
-setTimeout(openPopup, 5000);
-
 </script>
 
 </body>
