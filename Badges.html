@@ -3,249 +3,488 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pump Manufacturer Case Study</title>
+<title>Google Ads Case Study</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #020617;
-    color: #fff;
-}
-
-/* BACKGROUND GLOW */
-body::before {
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    background: radial-gradient(circle, rgba(79,209,197,0.25), transparent);
-    top:-100px;
-    left:-100px;
-    filter: blur(120px);
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #061212;
+  color: #fff;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
 .navbar {
-    position: sticky;
-    top:0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(12px);
-    padding:15px;
-    z-index:1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* PARALLAX */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
+  z-index: -1;
 }
 
 /* CONTAINER */
 .container {
-    max-width:1100px;
-    margin:auto;
-    padding:40px 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
 }
 
-/* HERO */
-.hero {
-    text-align:center;
-    padding:100px 20px;
+h1, h2 {
+  text-align: center;
 }
 
-.hero h1 {
-    font-size:40px;
-    background: linear-gradient(90deg,#4fd1c5,#00f2fe);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 60px;
 }
 
 /* GRID */
 .grid {
-    display:grid;
-    gap:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-/* CARDS */
-.card, .stat-card {
-    background: rgba(255,255,255,0.04);
-    padding:25px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,0.08);
-    position:relative;
-    overflow:hidden;
-    transition:0.4s;
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
-/* GRADIENT BORDER */
-.card::before, .stat-card::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:18px;
-    padding:1px;
-    background: linear-gradient(120deg,#4fd1c5,transparent,#4fd1c5);
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    opacity:0;
-    transition:0.4s;
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.card:hover::before, .stat-card:hover::before {
-    opacity:1;
+.card.active {
+  border: 1px solid #4fd1c5;
+  box-shadow: 0 0 25px rgba(79,209,197,0.3);
 }
 
-.card:hover, .stat-card:hover {
-    transform: translateY(-10px);
-    box-shadow:0 20px 50px rgba(79,209,197,0.2);
+/* STORY */
+.story-section {
+  margin-top: 80px;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s ease;
 }
 
-/* ICON */
-.icon {
-    font-size:26px;
-    margin-bottom:10px;
-    transition:0.4s;
+.story-section.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.card:hover .icon {
-    transform:scale(1.2) rotate(5deg);
+.story-section.active {
+  border-left: 6px solid #4fd1c5;
+  background: rgba(79,209,197,0.08);
 }
 
-/* STATS */
-.stats {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap:20px;
-    margin-top:50px;
+/* PROGRESS */
+.progress-circle {
+  width: 130px;
+  height: 130px;
+  margin: 20px auto;
+  position: relative;
 }
 
-.stat-card { text-align:center; }
+.progress-circle svg {
+  transform: rotate(-90deg);
+}
 
-/* SECTION */
-.section { margin-top:80px; }
+.progress-circle circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+.bg {
+  stroke: rgba(255,255,255,0.1);
+}
+
+.progress {
+  stroke: #4fd1c5;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: 2s ease;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
 
 /* CTA */
 .cta {
-    background: linear-gradient(135deg,#4fd1c5,#00f2fe);
-    color:#000;
-    text-align:center;
-    padding:60px 20px;
-    border-radius:16px;
-    margin-top:70px;
+  text-align: center;
+  margin-top: 100px;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 1s;
+}
+
+.cta.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 button {
-    padding:14px 30px;
-    border:none;
-    background:#000;
-    color:#fff;
-    border-radius:8px;
-    cursor:pointer;
+  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
+  padding: 14px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="navbar"><b>AIM Tech Marketing</b></div>
+<div class="navbar">
+  <div class="nav-container">
+    <b>AIM Tech Marketing</b>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="healthcare.html">Healthcare</a>
+      <a href="lawyer.html">Lawyer</a>
+      <a href="packers-movers.html">Packers & Movers</a>
+      <a href="pestcontrol.html">Pest Control</a>
+      <a href="Badges.html">Military Patches</a>
+      <a href="wool-e-commerce.html">Yarn Store</a>
+      <a href="skincare.html">Skincare</a>
+      <a href="pump-manufacturer.html">Pump Manufacturer</a>
+    </div>
+  </div>
+</div>
+
+<div class="parallax-bg" id="bg"></div>
 
 <div class="container">
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Scaled Industrial Pump Leads Profitably</h1>
-    <p>Google Ads strategy for B2B pump manufacturer</p>
+<h1>🚀 Google Ads Case Study</h1>
+<p class="subtitle">Scaling Revenue for Military & LE Patches</p>
 
-    <!-- RESULTS TOP -->
-    <div class="stats">
-        <div class="stat-card">
-            <h2 data-target="4144">0</h2>
-            <p>Clicks (+55%)</p>
-        </div>
-        <div class="stat-card">
-            <h2 data-target="331">0</h2>
-            <p>Conversions (+2.3%)</p>
-        </div>
-        <div class="stat-card">
-            <h2 data-target="72">0</h2>
-            <p>ROAS (72.82X)</p>
-        </div>
-        <div class="stat-card">
-            <h2 data-target="276">0</h2>
-            <p>Revenue Growth %</p>
-        </div>
+<h2>📊 Results Overview</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Conversions</h3>
+    <div class="progress-circle" data-percent="2.3">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="2.3">0%</div>
     </div>
+    <p>304.95 → 331.94</p>
+    <div>+2.29%</div>
+  </div>
+
+  <div class="card">
+    <h3>Conversion Value</h3>
+    <div class="progress-circle" data-percent="100">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="276">0%</div>
+    </div>
+    <p>9,289 → 35,005</p>
+    <div>+276.83%</div>
+  </div>
+
+  <div class="card">
+    <h3>ROAS</h3>
+    <div class="progress-circle" data-percent="66.8">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="66.8">0%</div>
+    </div>
+    <p>43.65X → 72.82X</p>
+    <div>+66.82%</div>
+  </div>
+
+  <div class="card">
+    <h3>Clicks</h3>
+    <div class="progress-circle" data-percent="55.7">
+      <svg width="130" height="130">
+        <circle class="bg" cx="65" cy="65" r="50"/>
+        <circle class="progress" cx="65" cy="65" r="50"/>
+      </svg>
+      <div class="progress-text" data-target="55.7">0%</div>
+    </div>
+    <p>2,660 → 4,144</p>
+    <div>+55.69%</div>
+  </div>
+
 </div>
 
-<!-- OBJECTIVES -->
-<div class="section">
+<div class="story-section">
 <h2>🎯 Objectives</h2>
-<div class="grid">
-<div class="card"><div class="icon">🎯</div><b>Increase Conversions</b><p>Without scaling spend aggressively</p></div>
-<div class="card"><div class="icon">💰</div><b>Boost Revenue</b><p>Improve conversion value</p></div>
-<div class="card"><div class="icon">📈</div><b>Improve ROAS</b><p>Maximize profitability</p></div>
-<div class="card"><div class="icon">🔥</div><b>High Intent Traffic</b><p>Target ready buyers</p></div>
-</div>
+<ul>
+<li>Increase conversions without scaling spend aggressively</li>
+<li>Boost revenue and conversion value</li>
+<li>Improve ROAS and profitability</li>
+<li>Drive high-intent traffic</li>
+</ul>
 </div>
 
-<!-- STRATEGY -->
-<div class="section">
+<div class="story-section">
 <h2>🧠 Strategy</h2>
-<div class="grid">
-<div class="card"><div class="icon">⚙️</div><b>Campaign Restructure</b><p>Search + PMax segmentation</p></div>
-<div class="card"><div class="icon">🔍</div><b>Keyword Targeting</b><p>High-intent queries</p></div>
-<div class="card"><div class="icon">🛒</div><b>Feed Optimization</b><p>Better product signals</p></div>
-<div class="card"><div class="icon">🎯</div><b>Remarketing</b><p>Re-engage visitors</p></div>
-<div class="card"><div class="icon">📊</div><b>Budget Scaling</b><p>Shift to top performers</p></div>
-</div>
+<ul>
+<li>Restructured campaigns into Brand, Search & Performance Max</li>
+<li>Focused on high-intent keywords</li>
+<li>Optimized product feed & creatives for PMax</li>
+<li>Implemented strong remarketing strategy</li>
+<li>Shifted budget to high-performing campaigns</li>
+</ul>
 </div>
 
-<!-- CHALLENGES -->
-<div class="section">
+<div class="story-section">
 <h2>⚠️ Challenges</h2>
-<div class="grid">
-<div class="card"><div class="icon">🎯</div><b>Niche Audience</b></div>
-<div class="card"><div class="icon">📉</div><b>Low Data</b></div>
-<div class="card"><div class="icon">🔥</div><b>High Competition</b></div>
-<div class="card"><div class="icon">⚠️</div><b>Tracking Issues</b></div>
-</div>
-</div>
-
-<!-- OUTCOME -->
-<div class="section">
-<h2>🏆 Outcome</h2>
-<div class="grid">
-<div class="card"><div class="icon">💰</div><b>+276% Revenue</b></div>
-<div class="card"><div class="icon">📈</div><b>72.82X ROAS</b></div>
-<div class="card"><div class="icon">🚀</div><b>+55% Traffic</b></div>
-<div class="card"><div class="icon">⚙️</div><b>Scalable System</b></div>
-</div>
+<ul>
+<li>Niche targeting</li>
+<li>Limited initial data</li>
+<li>High competition</li>
+<li>Tracking issues</li>
+</ul>
 </div>
 
-<!-- CTA -->
+<div class="story-section">
+<h2>🏆 Final Outcome</h2>
+<ul>
+<li>276% increase in revenue</li>
+<li>ROAS improved to 72.82X</li>
+<li>55% increase in traffic</li>
+<li>Scalable system built</li>
+</ul>
+</div>
+
 <div class="cta">
-<h2>Want Similar Results?</h2>
-<p>I help B2B brands scale with Google Ads</p>
-<button onclick="window.open('https://wa.me/9589188668')">Book Free Call</button>
+<h2>💬 Want Similar Results?</h2>
+<button>Contact Us</button>
 </div>
 
 </div>
+
+<!-- FLOAT BUTTONS -->
+<a href="https://wa.me/9589188668" class="whatsapp">💬</a>
+<button class="sticky-cta" onclick="openPopup()">🚀 Get Free Leads Plan</button>
+
+<!-- POPUP -->
+<div id="leadPopup" class="popup">
+  <div class="popup-box">
+    <span onclick="closePopup()" style="cursor:pointer;">×</span>
+    <h2>Get Free Strategy Call</h2>
+    <input placeholder="Your Name">
+    <input placeholder="Your Email">
+    <input placeholder="Your Phone">
+    <button onclick="openCalendly()">Book Call</button>
+  </div>
+</div>
+
+<!-- BACK BUTTON -->
+<div style="text-align:center; margin:50px;">
+  <a href="index.html" style="
+    padding:12px 25px;
+    background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+    border-radius:8px;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;">
+    ← Back to Case Studies
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 Vinay Yadav | Performance Marketing Consultant</p>
+</div>
+
+<style>
+/* FLOAT BUTTONS */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #25D366;
+  padding: 14px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+  z-index: 1000;
+}
+
+.sticky-cta {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.popup-box {
+  background: #0f2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+}
+
+.popup-box input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+</style>
 
 <script>
-/* COUNTER */
-document.querySelectorAll("[data-target]").forEach(el=>{
-let target=+el.dataset.target;
-let count=0;
-let step=target/60;
-
-function update(){
-count+=step;
-if(count<target){
-el.innerText=Math.floor(count);
-requestAnimationFrame(update);
-}else{
-el.innerText=target;
-}
-}
-update();
+// ============================
+// PARALLAX
+// ============================
+window.addEventListener("scroll", () => {
+  const bg = document.getElementById("bg");
+  if (bg) {
+    bg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+  }
 });
+
+// ============================
+// SCROLL REVEAL (MERGED)
+// ============================
+const elements = document.querySelectorAll('.card, .story-section, .cta');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
+
+elements.forEach(el => observer.observe(el));
+
+// ============================
+// PROGRESS + COUNT-UP
+// ============================
+document.querySelectorAll('.progress-circle').forEach(el => {
+  const percent = parseFloat(el.dataset.percent) || 0;
+  const text = el.querySelector('.progress-text');
+  const target = parseFloat(text.dataset.target) || 0;
+
+  const circle = el.querySelector('.progress');
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
+
+  const offset = circumference - (percent / 100) * circumference;
+
+  setTimeout(() => {
+    circle.style.strokeDashoffset = offset;
+  }, 500);
+
+  let count = 0;
+  const step = target / 60;
+
+  const counter = setInterval(() => {
+    count += step;
+    if (count >= target) {
+      count = target;
+      clearInterval(counter);
+    }
+    text.innerText = count.toFixed(1) + "%";
+  }, 20);
+});
+
+// ============================
+// POPUP FUNCTIONS
+// ============================
+function openPopup() {
+  document.getElementById("leadPopup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("leadPopup").style.display = "none";
+}
+
+function openCalendly() {
+  window.open("https://calendly.com/vinayyadav01992", "_blank");
+}
+
+// Auto popup after 5 sec
+setTimeout(openPopup, 5000);
+
 </script>
 
 </body>
