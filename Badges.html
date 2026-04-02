@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Ads Case Study</title>
+<title>Premium Case Study</title>
 
 <style>
 body {
@@ -11,210 +11,126 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #061212;
   color: #fff;
-  overflow-x: hidden;
-}
-
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  padding: 15px 20px;
-  z-index: 1000;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-links a {
-  margin-left: 20px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-/* PARALLAX */
-.parallax-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, #0f2a2a, #061212);
-  z-index: -1;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
-  padding: 120px 20px;
+  padding: 100px 20px;
 }
 
-h1, h2 {
+/* HEADINGS */
+h2 {
   text-align: center;
+  font-size: 34px;
+  margin-bottom: 10px;
 }
 
-.subtitle {
+.section-sub {
   text-align: center;
-  color: #aaa;
-  margin-bottom: 60px;
+  color: #8fa3a3;
+  margin-bottom: 40px;
+}
+
+/* SECTION DIVIDER */
+.divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg,#4fd1c5,#00f2fe);
+  margin: 20px auto 50px;
+  border-radius: 10px;
 }
 
 /* GRID */
-.grid {
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
   gap: 25px;
 }
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
+  position: relative;
   padding: 25px;
-  text-align: center;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(80px);
-  opacity: 0;
-  transition: all 0.8s ease;
+  overflow: hidden;
+  transition: 0.4s ease;
 }
 
-.card.show {
-  transform: translateY(0);
-  opacity: 1;
+/* GLOW BORDER */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(135deg,#4fd1c5,#00f2fe,transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
+/* HOVER EFFECT */
 .card:hover {
-  transform: translateY(-8px);
-  border-color: #4fd1c5;
-  box-shadow: 0 10px 30px rgba(79,209,197,0.2);
-}
-
-/* ✅ NEW: SECTION + CARD GRID */
-.section {
-  margin-top: 60px;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,255,200,0.15);
 }
 
 /* ICON */
 .card span {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 10px;
+  font-size: 26px;
+  display: inline-block;
+  margin-bottom: 12px;
 }
 
-/* STORY */
-.story-section {
-  margin-top: 80px;
-  padding: 40px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.08);
-  transform: translateY(100px);
+/* TEXT */
+.card p {
+  font-size: 15px;
+  color: #cfdede;
+  line-height: 1.5;
+}
+
+/* SECTION WRAPPER */
+.section {
+  margin-bottom: 80px;
+}
+
+/* ANIMATION */
+.card {
   opacity: 0;
-  transition: all 1s ease;
+  transform: translateY(40px);
 }
 
-.story-section.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* PROGRESS */
-.progress-circle {
-  width: 130px;
-  height: 130px;
-  margin: 20px auto;
-  position: relative;
-}
-
-.progress-circle svg {
-  transform: rotate(-90deg);
-}
-
-.progress-circle circle {
-  fill: none;
-  stroke-width: 10;
-}
-
-.bg {
-  stroke: rgba(255,255,255,0.1);
-}
-
-.progress {
-  stroke: #4fd1c5;
-  stroke-dasharray: 314;
-  stroke-dashoffset: 314;
-  transition: 2s ease;
-}
-
-.progress-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-}
-
-/* CTA */
-.cta {
-  text-align: center;
-  margin-top: 100px;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: 1s;
-}
-
-.cta.show {
+.card.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-button {
-  background: linear-gradient(135deg, #4fd1c5, #00f2fe);
-  padding: 14px 30px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
+/* STAGGER EFFECT */
+.card:nth-child(1) { transition-delay: 0.1s; }
+.card:nth-child(2) { transition-delay: 0.2s; }
+.card:nth-child(3) { transition-delay: 0.3s; }
+.card:nth-child(4) { transition-delay: 0.4s; }
+.card:nth-child(5) { transition-delay: 0.5s; }
+
 </style>
 </head>
 
 <body>
 
-<div class="parallax-bg" id="bg"></div>
-
 <div class="container">
-
-<h1>🚀 Google Ads Case Study</h1>
-<p class="subtitle">Scaling Revenue for Military & LE Patches</p>
-
-<h2>📊 Results Overview</h2>
-
-<div class="grid">
-  <!-- (your existing result cards unchanged) -->
-</div>
-
-<div class="story-section">
 
 <!-- OBJECTIVES -->
 <div class="section">
   <h2>🎯 Objectives</h2>
+  <div class="divider"></div>
+
   <div class="card-grid">
     <div class="card"><span>📈</span><p>Increase conversions without scaling spend aggressively</p></div>
     <div class="card"><span>💰</span><p>Boost revenue and conversion value</p></div>
@@ -226,6 +142,8 @@ button {
 <!-- STRATEGY -->
 <div class="section">
   <h2>🧠 Strategy</h2>
+  <div class="divider"></div>
+
   <div class="card-grid">
     <div class="card"><span>🛠️</span><p>Restructured campaigns into Brand, Search & Performance Max</p></div>
     <div class="card"><span>🔍</span><p>Focused on high-intent keywords</p></div>
@@ -238,6 +156,8 @@ button {
 <!-- CHALLENGES -->
 <div class="section">
   <h2>⚠️ Challenges</h2>
+  <div class="divider"></div>
+
   <div class="card-grid">
     <div class="card"><span>🎯</span><p>Niche targeting</p></div>
     <div class="card"><span>📉</span><p>Limited initial data</p></div>
@@ -249,6 +169,8 @@ button {
 <!-- OUTCOME -->
 <div class="section">
   <h2>🏆 Final Outcome</h2>
+  <div class="divider"></div>
+
   <div class="card-grid">
     <div class="card"><span>🚀</span><p>276% increase in revenue</p></div>
     <div class="card"><span>💎</span><p>ROAS improved to 72.82X</p></div>
@@ -259,7 +181,20 @@ button {
 
 </div>
 
-</div>
+<script>
+// SCROLL ANIMATION
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
